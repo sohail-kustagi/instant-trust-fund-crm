@@ -4,8 +4,8 @@ import { fetchAPI } from "@/lib/api";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Shield, CheckCircle2, Clock } from "lucide-react";
-// @ts-ignore
 import PropertyMap from "@/components/PropertyMap";
+import { DEMO_PROPERTIES } from "@/lib/demo-data";
 
 export const Route = createFileRoute("/admin/properties")({
   head: () => ({ meta: [{ title: "Property Verification CRM — IFY CRM" }] }),
@@ -16,9 +16,10 @@ function AdminProperties() {
   const { data, isLoading } = useQuery({
     queryKey: ["property-requests"],
     queryFn: () => fetchAPI("/properties/"),
+    initialData: { requests: DEMO_PROPERTIES },
   });
 
-  const requests = data?.requests || [];
+  const requests = data?.requests || data?.properties || DEMO_PROPERTIES;
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">

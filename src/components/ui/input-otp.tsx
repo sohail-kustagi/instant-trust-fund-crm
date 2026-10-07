@@ -33,7 +33,8 @@ const InputOTPSlot = React.forwardRef<
   React.ComponentPropsWithoutRef<"div"> & { index: number }
 >(({ index, className, ...props }, ref) => {
   const inputOTPContext = React.useContext(OTPInputContext);
-  const { char, hasCaret, isActive } = inputOTPContext.slots[index];
+  const slot = inputOTPContext.slots[index] || {};
+  const { char, hasFakeCaret, isActive } = slot;
 
   return (
     <div
@@ -46,7 +47,7 @@ const InputOTPSlot = React.forwardRef<
       {...props}
     >
       {char}
-      {hasCaret && (
+      {hasFakeCaret && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />
         </div>

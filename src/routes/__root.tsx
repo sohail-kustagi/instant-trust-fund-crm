@@ -14,6 +14,7 @@ import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/lib/auth-context";
 import { AppLayout } from "@/components/app-layout";
+import { DemoSwitcher } from "@/components/DemoSwitcher";
 import { fetchAPI } from "@/lib/api";
 
 import appCss from "../styles.css?url";
@@ -81,33 +82,52 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   beforeLoad: async ({ context, location }) => {
     const path = location.pathname;
 
-    // List of routes that bypass auth checks
-    const publicPaths = [
-      "/",
-      "/login",
-      "/register",
-      "/admin/login",
-      "/assistant/login",
-      "/privacy",
-      "/terms",
-    ];
+    // List of routes and patterns that bypass auth checks
+    const isPublic =
+      path === "/" ||
+      path === "/login" ||
+      path === "/register" ||
+      path === "/admin/login" ||
+      path === "/assistant/login" ||
+      path === "/privacy" ||
+      path === "/terms" ||
+      path === "/cibil" ||
+      path === "/policybazaar" ||
+      path === "/properties" ||
+      path.startsWith("/loans") ||
+      path.startsWith("/insurance");
 
-    if (publicPaths.includes(path)) {
+    if (isPublic) {
       return;
     }
 
     let user: any = null;
-    try {
-      user = await context.queryClient.ensureQueryData({
-        queryKey: ["auth", "me"],
-        queryFn: async () => {
-          const data = await fetchAPI("/auth/me");
-          return data.user;
-        },
-        staleTime: 5 * 60 * 1000,
-      });
-    } catch {
-      user = null;
+
+    // Check client-side demo session
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("ify_demo_user");
+        if (stored) {
+          user = JSON.parse(stored);
+        }
+      } catch {
+        user = null;
+      }
+    }
+
+    if (!user) {
+      try {
+        user = await context.queryClient.ensureQueryData({
+          queryKey: ["auth", "me"],
+          queryFn: async () => {
+            const data = await fetchAPI("/auth/me");
+            return data?.user || null;
+          },
+          staleTime: 5 * 60 * 1000,
+        });
+      } catch {
+        user = null;
+      }
     }
 
     if (!user) {
@@ -128,17 +148,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     }
 
     if (path.startsWith("/assistant")) {
-      if (user.role !== "assistant_admin") {
+      if (user.role !== "assistant_admin" && user.role !== "super_admin") {
         throw redirect({ to: "/assistant/login" });
       }
     }
 
     // Customer route protection
-    if (
-      path.startsWith("/dashboard") ||
-      path.startsWith("/cibil") ||
-      path.startsWith("/profile")
-    ) {
+    if (path.startsWith("/dashboard") || path.startsWith("/profile")) {
       if (user.role !== "customer") {
         if (user.role === "super_admin") {
           throw redirect({ to: "/admin" });
@@ -225,6 +241,7 @@ function RootComponent() {
               <Outlet />
             </AppLayout>
 
+            <DemoSwitcher />
             <Toaster richColors position="top-right" />
           </AppStoreProvider>
         </AuthProvider>

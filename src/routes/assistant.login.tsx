@@ -14,7 +14,7 @@ export const Route = createFileRoute("/assistant/login")({
 
 function AssistantLoginPage() {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, loginAsDemo } = useAuth();
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -103,6 +103,29 @@ function AssistantLoginPage() {
             disabled={isLoading}
           >
             {isLoading ? "Authenticating..." : "Login to Assistant Portal"}
+          </Button>
+
+          <div className="relative my-4">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-card px-2 text-muted-foreground font-semibold">Client Demo Access</span>
+            </div>
+          </div>
+
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => {
+              loginAsDemo("assistant_admin");
+              toast.success("Welcome, Praveen Kumar (Assistant Admin Demo)");
+              navigate({ to: "/admin/tasks" });
+            }}
+            className="w-full border-amber-500/40 text-amber-700 hover:bg-amber-50 h-11 font-semibold flex items-center justify-center gap-2"
+          >
+            <UserCheck className="h-4 w-4" />
+            Quick Demo: 1-Click Login as Assistant
           </Button>
         </form>
       </Card>

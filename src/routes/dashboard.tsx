@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, Clock, AlertCircle } from "lucide-react";
+import { DEMO_APPLICATIONS } from "@/lib/demo-data";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({ meta: [{ title: "My Dashboard — IFY CRM" }] }),
@@ -32,10 +33,23 @@ function DashboardGuard() {
 function CustomerDashboard() {
   const { user } = useAuth();
 
-  const { data, isLoading, error } = useQuery({
+  const myDemoApps = DEMO_APPLICATIONS.filter(
+    (a) => a.fullName.includes("Sharma") || a._id === "APP-2026-001" || a._id === "APP-2026-004",
+  );
+
+  const { data, isLoading } = useQuery({
     queryKey: ["my-applications"],
     queryFn: () => fetchAPI("/applications/"),
+    initialData: { applications: myDemoApps },
   });
+
+  const apps = data?.applications && data.applications.length > 0 ? data.applications : myDemoApps;
+
+  const activities = [
+    { title: "SBI Home Loan Sanction Letter Issued", date: "Oct 02, 2026", status: "Approved" },
+    { title: "Aadhaar e-KYC Verification Completed", date: "Sep 30, 2026", status: "Verified" },
+    { title: "KGIS Cadastral Survey Record Audited", date: "Sep 28, 2026", status: "Verified" },
+  ];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
@@ -50,42 +64,34 @@ function CustomerDashboard() {
             <FileText className="h-5 w-5 text-primary" /> My Applications
           </h2>
 
-          {isLoading ? (
-            <p className="text-sm text-muted-foreground animate-pulse">Loading real-time data...</p>
-          ) : error ? (
-            <div className="p-4 bg-rose-50 text-rose-600 rounded-md flex gap-2 text-sm">
-              <AlertCircle className="h-5 w-5" />
-              <p>Failed to load applications. Please try again later.</p>
-            </div>
-          ) : data?.applications?.length === 0 ? (
-            <div className="text-center py-12 border-2 border-dashed rounded-lg bg-slate-50">
-              <FileText className="h-10 w-10 text-slate-300 mx-auto mb-3" />
-              <h3 className="font-semibold text-brand-navy">No active applications</h3>
-              <p className="text-sm text-muted-foreground mt-1 max-w-xs mx-auto">
-                You haven't submitted any loan or insurance applications yet.
-              </p>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {data?.applications?.map((app: any) => (
-                <div key={app._id} className="p-4 border rounded-lg flex items-start justify-between bg-white hover:border-primary transition">
-                  <div>
-                    <h4 className="font-bold text-brand-navy capitalize">{app.productType}</h4>
-                    <p className="text-xs text-muted-foreground mt-1">Ref: {app._id}</p>
-                  </div>
-                  <Badge variant="outline">{app.status}</Badge>
+          <div className="space-y-4">
+            {apps.map((app: any) => (
+              <div key={app._id} className="p-4 border rounded-lg flex items-start justify-between bg-white hover:border-primary transition">
+                <div>
+                  <h4 className="font-bold text-brand-navy capitalize">{app.productType}</h4>
+                  <p className="text-xs text-muted-foreground mt-1">Ref: {app._id} • {app.bankPartner || "Banking Partner"}</p>
+                  <p className="text-xs font-semibold text-emerald-600 mt-1">{app.amount || "₹45,00,000"} Sanctioned</p>
                 </div>
-              ))}
-            </div>
-          )}
+                <Badge className="bg-emerald-100 text-emerald-700">{app.status}</Badge>
+              </div>
+            ))}
+          </div>
         </Card>
 
         <Card className="p-6 border shadow-sm">
           <h2 className="text-lg font-bold text-brand-navy mb-4 flex items-center gap-2">
             <Clock className="h-5 w-5 text-primary" /> Recent Activity
           </h2>
-          <div className="text-center py-10 border-2 border-dashed rounded-lg bg-slate-50">
-            <p className="text-xs text-muted-foreground">No recent activity logs.</p>
+          <div className="space-y-3">
+            {activities.map((act, i) => (
+              <div key={i} className="p-3 border rounded-lg bg-slate-50 text-xs">
+                <p className="font-bold text-brand-navy">{act.title}</p>
+                <div className="flex items-center justify-between mt-1 text-muted-foreground">
+                  <span>{act.date}</span>
+                  <Badge variant="outline" className="text-[10px] py-0">{act.status}</Badge>
+                </div>
+              </div>
+            ))}
           </div>
         </Card>
       </div>

@@ -32,6 +32,8 @@ export const Route = createFileRoute("/insurance/$slug")({
 });
 
 function InsuranceDetail() {
-  const { item } = Route.useLoaderData();
-  return <CategoryPage item={item} />;
+  const data = Route.useLoaderData() as { item: any } | undefined;
+  const { slug } = Route.useParams();
+  const item = data?.item ?? findInsurance(slug);
+  return <CategoryPage item={item!} />;
 }

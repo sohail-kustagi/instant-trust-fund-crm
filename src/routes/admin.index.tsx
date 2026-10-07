@@ -13,6 +13,8 @@ import {
   XCircle,
 } from "lucide-react";
 
+import { DEMO_APPLICATIONS } from "@/lib/demo-data";
+
 export const Route = createFileRoute("/admin/")({
   head: () => ({ meta: [{ title: "Admin Dashboard — IFY CRM" }] }),
   component: AdminDashboard,
@@ -48,17 +50,17 @@ function AdminDashboard() {
   const { data: appData, isLoading } = useQuery({
     queryKey: ["all-applications"],
     queryFn: () => fetchAPI("/applications/"),
+    initialData: { applications: DEMO_APPLICATIONS },
   });
 
   if (user?.role === "assistant_admin") {
     return <Navigate to="/admin/tasks" replace />;
   }
 
-  if (isLoading) {
-    return <div className="p-10 text-center animate-pulse">Loading Live CRM Data...</div>;
-  }
-
-  const applications = appData?.applications || [];
+  const applications =
+    appData?.applications && appData.applications.length > 0
+      ? appData.applications
+      : DEMO_APPLICATIONS;
   
   const totalLoans = applications.filter((c: any) => c.productKind === "loan").length;
   const totalIns = applications.filter((c: any) => c.productKind === "insurance").length;

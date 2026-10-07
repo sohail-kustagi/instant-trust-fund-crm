@@ -36,6 +36,8 @@ export const Route = createFileRoute("/loans/$slug")({
 });
 
 function LoanDetail() {
-  const { item } = Route.useLoaderData();
-  return <CategoryPage item={item} />;
+  const data = Route.useLoaderData() as { item: any } | undefined;
+  const { slug } = Route.useParams();
+  const item = data?.item ?? findLoan(slug);
+  return <CategoryPage item={item!} />;
 }

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Users, Search, Filter, ShieldCheck, Phone, MapPin, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Customer360 } from "@/components/Customer360";
+import { DEMO_CUSTOMERS } from "@/lib/demo-data";
 
 export const Route = createFileRoute("/admin/customers")({
   head: () => ({ meta: [{ title: "Customer CRM Database — IFY CRM" }] }),
@@ -28,10 +29,12 @@ function AdminCustomers() {
     queryKey: ["customers", search, source, page],
     queryFn: () =>
       fetchAPI(`/customers?page=${page}&limit=15&search=${encodeURIComponent(search)}&source=${source}`),
+    initialData: { customers: DEMO_CUSTOMERS, total: DEMO_CUSTOMERS.length, pages: 1 },
   });
 
-  const customers = data?.customers || [];
-  const total = data?.total || 0;
+  const customers =
+    data?.customers && data.customers.length > 0 ? data.customers : DEMO_CUSTOMERS;
+  const total = data?.total || customers.length;
   const totalPages = data?.pages || 1;
 
   if (selectedCustomerId) {

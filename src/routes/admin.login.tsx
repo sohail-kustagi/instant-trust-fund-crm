@@ -14,7 +14,7 @@ export const Route = createFileRoute("/admin/login")({
 
 function AdminLoginPage() {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, loginAsDemo } = useAuth();
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -103,6 +103,29 @@ function AdminLoginPage() {
             disabled={isLoading}
           >
             {isLoading ? "Authenticating..." : "Login to Admin"}
+          </Button>
+
+          <div className="relative my-4">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-card px-2 text-muted-foreground font-semibold">Client Demo Access</span>
+            </div>
+          </div>
+
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => {
+              loginAsDemo("super_admin");
+              toast.success("Welcome, Syed Abdul Khader (Super Admin Demo)");
+              navigate({ to: "/admin" });
+            }}
+            className="w-full border-primary/30 text-primary hover:bg-primary/10 h-11 font-semibold flex items-center justify-center gap-2"
+          >
+            <ShieldCheck className="h-4 w-4" />
+            Quick Demo: 1-Click Login as Super Admin
           </Button>
         </form>
       </Card>

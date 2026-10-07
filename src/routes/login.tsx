@@ -5,7 +5,7 @@ import { useAuth } from "@/lib/auth-context";
 import { fetchAPI } from "@/lib/api";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Lock, ArrowRight, Eye, EyeOff } from "lucide-react";
+import { Lock, ArrowRight, Eye, EyeOff, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/login")({
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, loginAsDemo } = useAuth();
 
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
@@ -154,6 +154,29 @@ function LoginPage() {
               width="100%"
             />
           </div>
+
+          <div className="relative my-4">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-card px-2 text-muted-foreground font-semibold">Client Demo Access</span>
+            </div>
+          </div>
+
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => {
+              loginAsDemo("customer");
+              toast.success("Welcome, Rajesh S. Sharma (Customer Demo)");
+              navigate({ to: "/dashboard" });
+            }}
+            className="w-full border-emerald-500/40 text-emerald-700 hover:bg-emerald-50 h-11 font-semibold flex items-center justify-center gap-2"
+          >
+            <ShieldCheck className="h-4 w-4 text-emerald-600" />
+            Quick Demo: 1-Click Login as Customer
+          </Button>
         </form>
 
         <div className="mt-6 text-center text-sm text-muted-foreground">

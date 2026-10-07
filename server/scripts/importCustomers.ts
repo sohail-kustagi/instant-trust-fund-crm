@@ -67,7 +67,9 @@ export async function importCustomerData() {
   const parsedRecords: ParsedCustomer[] = [];
 
   for (const filename of filesToProcess) {
-    const filePath = path.join(rootDir, filename);
+    const importDirPath = path.join(rootDir, "server/data/imports", filename);
+    const rootPath = path.join(rootDir, filename);
+    const filePath = fs.existsSync(importDirPath) ? importDirPath : rootPath;
     if (!fs.existsSync(filePath)) {
       console.log(`[SKIP] File not found: ${filename}`);
       continue;
