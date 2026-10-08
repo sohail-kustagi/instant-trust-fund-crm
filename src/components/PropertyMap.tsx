@@ -160,7 +160,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
   }
 
   return (
-    <div className="w-full h-full min-h-[350px] relative rounded-xl overflow-hidden border shadow-inner bg-slate-900">
+    <div className="w-full h-full min-h-[260px] sm:min-h-[350px] relative rounded-xl overflow-hidden border shadow-inner bg-slate-900">
       {!leafletLoaded && (
         <div className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-slate-400 bg-slate-900/90 z-20">
           Mounting OpenStreetMap & KGIS WMS Layers...
@@ -168,7 +168,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
       )}
       <div
         ref={mapContainerRef}
-        style={{ width: "100%", height: "100%", minHeight: "350px" }}
+        style={{ width: "100%", height: "100%", minHeight: "260px" }}
         className="z-10"
       />
     </div>

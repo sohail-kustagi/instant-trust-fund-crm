@@ -51,19 +51,19 @@ function AssistantLoginPage() {
   };
 
   return (
-    <div className="mx-auto max-w-md px-6 py-16 flex flex-col items-center bg-brand-surface min-h-screen">
-      <div className="text-center w-full mb-8 flex flex-col items-center">
-        <div className="bg-amber-100 p-4 rounded-full mb-4">
-          <UserCheck className="h-8 w-8 text-amber-600" />
+    <div className="mx-auto max-w-md px-4 sm:px-6 py-8 sm:py-16 flex flex-col items-center bg-brand-surface min-h-screen">
+      <div className="text-center w-full mb-6 sm:mb-8 flex flex-col items-center">
+        <div className="bg-amber-100 p-3.5 sm:p-4 rounded-full mb-4">
+          <UserCheck className="h-7 w-7 sm:h-8 sm:w-8 text-amber-600" />
         </div>
         <h1 className="text-2xl font-black text-brand-navy">Assistant Portal</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
           Secure access for assistant administrators
         </p>
       </div>
 
-      <Card className="p-8 w-full border border-amber-200 bg-card shadow-lg rounded-xl">
-        <form onSubmit={handleLogin} className="space-y-5">
+      <Card className="p-5 sm:p-8 w-full border border-amber-200 bg-card shadow-lg rounded-xl sm:rounded-2xl">
+        <form onSubmit={handleLogin} className="space-y-4 sm:space-y-5">
           <div className="space-y-1">
             <label className="text-sm font-semibold text-brand-navy">Assistant Email</label>
             <input 
@@ -122,10 +122,10 @@ function AssistantLoginPage() {
               toast.success("Welcome, Praveen Kumar (Assistant Admin Demo)");
               navigate({ to: "/admin/tasks" });
             }}
-            className="w-full border-amber-500/40 text-amber-700 hover:bg-amber-50 h-11 font-semibold flex items-center justify-center gap-2"
+            className="w-full border-amber-500/40 text-amber-700 hover:bg-amber-50 h-auto min-h-[44px] py-2 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 text-center"
           >
-            <UserCheck className="h-4 w-4" />
-            Quick Demo: 1-Click Login as Assistant
+            <UserCheck className="h-4 w-4 shrink-0" />
+            <span>Quick Demo: 1-Click Login as Assistant</span>
           </Button>
         </form>
       </Card>

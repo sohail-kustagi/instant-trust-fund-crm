@@ -51,15 +51,15 @@ function AdminCustomers() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
-          <h1 className="text-3xl font-black text-brand-navy">Customer CRM Database</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">Customer CRM Database</h1>
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Manage real imported customer records, KYC profiles, and privacy controls. Click on a record to view details.
           </p>
         </div>
-        <div className="flex gap-3 items-center">
+        <div className="flex flex-wrap gap-2.5 items-center">
           <input
             type="file"
             accept=".xlsx,.xls,.csv,.pdf"
@@ -98,8 +98,9 @@ function AdminCustomers() {
             size="sm" 
             onClick={() => fileInputRef.current?.click()}
             disabled={isUploading}
+            className="text-xs"
           >
-            {isUploading ? "Uploading..." : "Bulk Upload (Excel/PDF)"}
+            {isUploading ? "Uploading..." : "Bulk Upload"}
           </Button>
           <Badge className="bg-emerald-500/10 text-emerald-600 px-3 py-1 text-xs font-semibold">
             {total.toLocaleString()} Verified Records
@@ -108,8 +109,8 @@ function AdminCustomers() {
       </div>
 
       {/* Search and Filters */}
-      <Card className="p-4 border mb-6 shadow-sm flex flex-wrap gap-4 items-center justify-between">
-        <div className="relative flex-1 min-w-[260px]">
+      <Card className="p-3 sm:p-4 border mb-6 shadow-sm flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center justify-between">
+        <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
           <Input
             placeholder="Search by customer name, phone, or location..."
@@ -121,9 +122,9 @@ function AdminCustomers() {
             className="pl-9 text-xs"
           />
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           <select
-            className="h-9 px-3 rounded-md border text-xs bg-white focus:outline-none"
+            className="h-9 px-3 rounded-md border text-xs bg-white focus:outline-none w-full sm:w-auto"
             value={source}
             onChange={(e) => {
               setSource(e.target.value);
@@ -209,27 +210,29 @@ function AdminCustomers() {
         </div>
 
         {/* Pagination */}
-        <div className="flex items-center justify-between p-4 border-t bg-slate-50/50 text-xs">
-          <span className="text-slate-500">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 sm:p-4 border-t bg-slate-50/50 text-xs">
+          <span className="text-slate-500 text-center sm:text-left">
             Showing Page <strong className="text-slate-700">{page}</strong> of{" "}
-            <strong className="text-slate-700">{totalPages}</strong> ({total} total customers)
+            <strong className="text-slate-700">{totalPages}</strong> ({total.toLocaleString()} total customers)
           </span>
-          <div className="flex gap-2">
+          <div className="flex gap-2 w-full sm:w-auto justify-center">
             <Button
               variant="outline"
               size="sm"
               disabled={page <= 1}
               onClick={() => setPage((p) => p - 1)}
+              className="text-xs h-8"
             >
-              <ChevronLeft className="h-4 w-4 mr-1" /> Previous
+              <ChevronLeft className="h-3.5 w-3.5 mr-1" /> Previous
             </Button>
             <Button
               variant="outline"
               size="sm"
               disabled={page >= totalPages}
               onClick={() => setPage((p) => p + 1)}
+              className="text-xs h-8"
             >
-              Next <ChevronRight className="h-4 w-4 ml-1" />
+              Next <ChevronRight className="h-3.5 w-3.5 ml-1" />
             </Button>
           </div>
         </div>

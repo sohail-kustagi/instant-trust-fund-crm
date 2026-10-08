@@ -33,62 +33,62 @@ function AdminReferrals() {
   const referrals = data?.referrals || DEMO_REFERRALS;
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-3xl font-black text-brand-navy">Channel Partner Network (DSA)</h1>
-            <Badge className="bg-primary/10 text-primary font-semibold">52 Active Partners</Badge>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">Channel Partner Network (DSA)</h1>
+            <Badge className="bg-primary/10 text-primary font-semibold text-xs">52 Active Partners</Badge>
           </div>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Direct Selling Agents, Chartered Accountants, and Real Estate broker referral tracking.
           </p>
         </div>
 
         <Button
           onClick={() => toast.info("Partner onboarding modal opened (Demo Mode)")}
-          className="bg-primary hover:bg-brand-navy flex items-center gap-2"
+          className="bg-primary hover:bg-brand-navy flex items-center gap-2 text-xs sm:text-sm h-9 sm:h-10"
         >
           <UserPlus className="h-4 w-4" /> Onboard Partner
         </Button>
       </div>
 
       {/* Network Metrics */}
-      <div className="grid gap-4 sm:grid-cols-4 mb-8">
-        <Card className="p-5 border shadow-sm">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <Card className="p-3.5 sm:p-5 border shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase text-muted-foreground">Total Sourced Volume</span>
-            <DollarSign className="h-5 w-5 text-emerald-600" />
+            <span className="text-[11px] sm:text-xs font-bold uppercase text-muted-foreground">Total Sourced</span>
+            <DollarSign className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600" />
           </div>
-          <div className="text-2xl font-black mt-2 text-brand-navy">₹8.65 Crores</div>
-          <span className="text-xs text-emerald-600 font-bold mt-1 inline-block">+22.4% MoM</span>
+          <div className="text-xl sm:text-2xl font-black mt-1.5 sm:mt-2 text-brand-navy">₹8.65 Cr</div>
+          <span className="text-[11px] sm:text-xs text-emerald-600 font-bold mt-1 inline-block">+22.4% MoM</span>
         </Card>
 
-        <Card className="p-5 border shadow-sm">
+        <Card className="p-3.5 sm:p-5 border shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase text-muted-foreground">Total Partner Leads</span>
-            <Users className="h-5 w-5 text-primary" />
+            <span className="text-[11px] sm:text-xs font-bold uppercase text-muted-foreground">Partner Leads</span>
+            <Users className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
           </div>
-          <div className="text-2xl font-black mt-2 text-brand-navy">133 Applicants</div>
-          <span className="text-xs text-muted-foreground mt-1 inline-block">78.5% conversion</span>
+          <div className="text-xl sm:text-2xl font-black mt-1.5 sm:mt-2 text-brand-navy">133 Applicants</div>
+          <span className="text-[11px] sm:text-xs text-muted-foreground mt-1 inline-block">78.5% conversion</span>
         </Card>
 
-        <Card className="p-5 border shadow-sm">
+        <Card className="p-3.5 sm:p-5 border shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase text-muted-foreground">Commission Paid</span>
-            <Award className="h-5 w-5 text-amber-600" />
+            <span className="text-[11px] sm:text-xs font-bold uppercase text-muted-foreground">Commission Paid</span>
+            <Award className="h-4 w-4 sm:h-5 sm:w-5 text-amber-600" />
           </div>
-          <div className="text-2xl font-black mt-2 text-brand-navy">₹5,71,000</div>
-          <span className="text-xs text-emerald-600 font-bold mt-1 inline-block">All payouts settled</span>
+          <div className="text-xl sm:text-2xl font-black mt-1.5 sm:mt-2 text-brand-navy">₹5.71 Lakh</div>
+          <span className="text-[11px] sm:text-xs text-emerald-600 font-bold mt-1 inline-block">All payouts settled</span>
         </Card>
 
-        <Card className="p-5 border shadow-sm">
+        <Card className="p-3.5 sm:p-5 border shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase text-muted-foreground">Top Tier Partner</span>
-            <ShieldCheck className="h-5 w-5 text-blue-600" />
+            <span className="text-[11px] sm:text-xs font-bold uppercase text-muted-foreground">Top Partner</span>
+            <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
           </div>
-          <div className="text-lg font-black mt-2 text-brand-navy truncate">S. Venkatesh (CA)</div>
-          <span className="text-xs text-muted-foreground mt-1 inline-block">₹4.1 Cr Sourced</span>
+          <div className="text-base sm:text-lg font-black mt-1.5 sm:mt-2 text-brand-navy truncate">S. Venkatesh (CA)</div>
+          <span className="text-[11px] sm:text-xs text-muted-foreground mt-1 inline-block">₹4.1 Cr Sourced</span>
         </Card>
       </div>
 

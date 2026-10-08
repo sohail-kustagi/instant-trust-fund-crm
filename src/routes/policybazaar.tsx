@@ -95,20 +95,20 @@ export function PolicyBazaarPage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-14">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-14">
       {/* Policybazaar Disclaimer Header */}
-      <div className="mb-10 rounded-2xl bg-brand-gradient text-white p-8 shadow-elevated relative overflow-hidden">
+      <div className="mb-8 sm:mb-10 rounded-xl sm:rounded-2xl bg-brand-gradient text-white p-5 sm:p-8 shadow-elevated relative overflow-hidden">
         <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none transform translate-y-6 translate-x-6">
           <ShieldCheck className="h-64 w-64" />
         </div>
         <div className="relative z-10 max-w-3xl">
-          <Badge className="bg-soft-pink text-white hover:bg-soft-pink/90 mb-3 px-3 py-1 font-bold">
+          <Badge className="bg-soft-pink text-white hover:bg-soft-pink/90 mb-3 px-3 py-1 font-bold text-xs">
             Policybazaar Premium Partner Channel
           </Badge>
-          <h1 className="text-3xl font-black md:text-5xl tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-white">
             Policy Comparison & Renewals
           </h1>
-          <p className="mt-3 text-sm text-white/80 leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-white/80 leading-relaxed">
             Compare plans, renew coverages, and request claims assistance instantly. Instant Trust
             Fund leverages secure comparison parameters to guide your insurance investments.
           </p>
@@ -121,7 +121,7 @@ export function PolicyBazaarPage() {
       </div>
 
       {/* Tabs list */}
-      <div className="flex flex-wrap gap-2 mb-8 border-b pb-4">
+      <div className="flex items-center gap-2 mb-8 border-b pb-3 overflow-x-auto no-scrollbar">
         {[
           { id: "compare", label: "Compare Policies", icon: Search },
           { id: "health", label: "Health Insurance", icon: Heart },
@@ -135,7 +135,7 @@ export function PolicyBazaarPage() {
             <button
               key={t.id}
               onClick={() => setActiveTab(t.id as TabType)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold transition-all ${
+              className={`shrink-0 flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
                 activeTab === t.id
                   ? "bg-primary text-white shadow-md"
                   : "bg-white text-muted-foreground hover:bg-slate-100 hover:text-foreground border border-slate-200"

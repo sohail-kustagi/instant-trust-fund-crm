@@ -22,11 +22,11 @@ function AdminProperties() {
   const requests = data?.requests || data?.properties || DEMO_PROPERTIES;
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
-          <h1 className="text-3xl font-black text-brand-navy">Property Verification GIS Map</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">Property Verification GIS Map</h1>
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Geospatial land survey verification and land record audits. Owner details are restricted to authorized admins.
           </p>
         </div>
@@ -35,13 +35,13 @@ function AdminProperties() {
         </Badge>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3 mb-8">
+      <div className="grid gap-6 lg:grid-cols-3 mb-6 sm:mb-8">
         {/* Interactive Property Map */}
-        <Card className="lg:col-span-2 border shadow-sm rounded-xl overflow-hidden min-h-[350px] relative">
+        <Card className="lg:col-span-2 border shadow-sm rounded-xl overflow-hidden min-h-[260px] sm:min-h-[350px] relative">
           <PropertyMap properties={requests} />
         </Card>
 
-        <Card className="p-6 border shadow-sm">
+        <Card className="p-4 sm:p-6 border shadow-sm">
           <h3 className="text-base font-bold text-brand-navy border-b pb-3 mb-4 flex items-center gap-2">
             <Shield className="h-4 w-4 text-primary" /> Security & Privacy Notice
           </h3>

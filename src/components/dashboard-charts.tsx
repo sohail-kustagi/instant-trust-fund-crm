@@ -35,15 +35,15 @@ interface DashboardChartsProps {
 export default function DashboardCharts({ monthly, smsChart, loanDist, insDist }: DashboardChartsProps) {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
-      <Card className="p-6">
-        <h3 className="text-lg font-bold">Monthly Applications</h3>
+      <Card className="p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-bold">Monthly Applications</h3>
         <p className="text-xs text-muted-foreground">Trailing 6 months</p>
-        <div className="mt-4 h-64">
-          <ResponsiveContainer>
+        <div className="mt-4 h-60 sm:h-64">
+          <ResponsiveContainer width="100%" height="100%">
             <BarChart data={monthly}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" />
-              <XAxis dataKey="month" stroke="var(--color-muted-foreground)" fontSize={12} />
-              <YAxis stroke="var(--color-muted-foreground)" fontSize={12} />
+              <XAxis dataKey="month" stroke="var(--color-muted-foreground)" fontSize={11} />
+              <YAxis stroke="var(--color-muted-foreground)" fontSize={11} />
               <Tooltip
                 contentStyle={{ borderRadius: 8, border: "1px solid var(--color-border)" }}
               />
@@ -53,16 +53,16 @@ export default function DashboardCharts({ monthly, smsChart, loanDist, insDist }
         </div>
       </Card>
 
-      <Card className="p-6">
-        <h3 className="text-lg font-bold">SMS Delivery — Last 7 days</h3>
-        <div className="mt-4 h-64">
-          <ResponsiveContainer>
+      <Card className="p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-bold">SMS Delivery — Last 7 days</h3>
+        <div className="mt-4 h-60 sm:h-64">
+          <ResponsiveContainer width="100%" height="100%">
             <LineChart data={smsChart}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" />
-              <XAxis dataKey="day" stroke="var(--color-muted-foreground)" fontSize={12} />
-              <YAxis stroke="var(--color-muted-foreground)" fontSize={12} />
+              <XAxis dataKey="day" stroke="var(--color-muted-foreground)" fontSize={11} />
+              <YAxis stroke="var(--color-muted-foreground)" fontSize={11} />
               <Tooltip />
-              <Legend />
+              <Legend wrapperStyle={{ fontSize: 11 }} />
               <Line
                 type="monotone"
                 dataKey="sent"
@@ -80,45 +80,49 @@ export default function DashboardCharts({ monthly, smsChart, loanDist, insDist }
         </div>
       </Card>
 
-      <Card className="p-6">
-        <h3 className="text-lg font-bold">Loan Distribution</h3>
-        <div className="mt-4 h-72">
-          <ResponsiveContainer>
+      <Card className="p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-bold">Loan Distribution</h3>
+        <div className="mt-4 h-64 sm:h-72">
+          <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={loanDist}
                 dataKey="value"
                 nameKey="name"
-                outerRadius={90}
-                label={(e) => (e as { name: string }).name}
+                outerRadius={68}
+                cx="50%"
+                cy="45%"
               >
                 {loanDist.map((_, i) => (
                   <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
                 ))}
               </Pie>
               <Tooltip />
+              <Legend wrapperStyle={{ fontSize: 11 }} />
             </PieChart>
           </ResponsiveContainer>
         </div>
       </Card>
 
-      <Card className="p-6">
-        <h3 className="text-lg font-bold">Insurance Distribution</h3>
-        <div className="mt-4 h-72">
-          <ResponsiveContainer>
+      <Card className="p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-bold">Insurance Distribution</h3>
+        <div className="mt-4 h-64 sm:h-72">
+          <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={insDist}
                 dataKey="value"
                 nameKey="name"
-                outerRadius={90}
-                label={(e) => (e as { name: string }).name}
+                outerRadius={68}
+                cx="50%"
+                cy="45%"
               >
                 {insDist.map((_, i) => (
                   <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
                 ))}
               </Pie>
               <Tooltip />
+              <Legend wrapperStyle={{ fontSize: 11 }} />
             </PieChart>
           </ResponsiveContainer>
         </div>

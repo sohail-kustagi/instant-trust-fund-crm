@@ -52,41 +52,41 @@ function CustomerDashboard() {
   ];
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
-      <div className="mb-8">
-        <h1 className="text-3xl font-black text-brand-navy">Welcome back, {user?.fullName}</h1>
-        <p className="text-muted-foreground mt-1 text-sm">Track your active applications and required documents here.</p>
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-12">
+      <div className="mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">Welcome back, {user?.fullName}</h1>
+        <p className="text-muted-foreground mt-1 text-xs sm:text-sm">Track your active applications and required documents here.</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
-        <Card className="col-span-2 p-6 border shadow-sm">
-          <h2 className="text-lg font-bold text-brand-navy mb-4 flex items-center gap-2">
+        <Card className="md:col-span-2 p-4 sm:p-6 border shadow-sm">
+          <h2 className="text-base sm:text-lg font-bold text-brand-navy mb-4 flex items-center gap-2">
             <FileText className="h-5 w-5 text-primary" /> My Applications
           </h2>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {apps.map((app: any) => (
-              <div key={app._id} className="p-4 border rounded-lg flex items-start justify-between bg-white hover:border-primary transition">
-                <div>
-                  <h4 className="font-bold text-brand-navy capitalize">{app.productType}</h4>
+              <div key={app._id} className="p-3.5 sm:p-4 border rounded-lg flex flex-col sm:flex-row sm:items-start justify-between gap-2.5 bg-white hover:border-primary transition">
+                <div className="min-w-0">
+                  <h4 className="font-bold text-brand-navy capitalize text-sm">{app.productType}</h4>
                   <p className="text-xs text-muted-foreground mt-1">Ref: {app._id} • {app.bankPartner || "Banking Partner"}</p>
                   <p className="text-xs font-semibold text-emerald-600 mt-1">{app.amount || "₹45,00,000"} Sanctioned</p>
                 </div>
-                <Badge className="bg-emerald-100 text-emerald-700">{app.status}</Badge>
+                <Badge className="bg-emerald-100 text-emerald-700 self-start sm:self-auto shrink-0">{app.status}</Badge>
               </div>
             ))}
           </div>
         </Card>
 
-        <Card className="p-6 border shadow-sm">
-          <h2 className="text-lg font-bold text-brand-navy mb-4 flex items-center gap-2">
+        <Card className="p-4 sm:p-6 border shadow-sm">
+          <h2 className="text-base sm:text-lg font-bold text-brand-navy mb-4 flex items-center gap-2">
             <Clock className="h-5 w-5 text-primary" /> Recent Activity
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-2.5 sm:space-y-3">
             {activities.map((act, i) => (
-              <div key={i} className="p-3 border rounded-lg bg-slate-50 text-xs">
+              <div key={i} className="p-2.5 sm:p-3 border rounded-lg bg-slate-50 text-xs">
                 <p className="font-bold text-brand-navy">{act.title}</p>
-                <div className="flex items-center justify-between mt-1 text-muted-foreground">
+                <div className="flex items-center justify-between mt-1.5 text-muted-foreground">
                   <span>{act.date}</span>
                   <Badge variant="outline" className="text-[10px] py-0">{act.status}</Badge>
                 </div>

@@ -12,9 +12,9 @@ export const Route = createFileRoute("/privacy")({
     ],
   }),
   component: () => (
-    <div className="mx-auto max-w-4xl px-6 py-14">
-      <h1 className="text-4xl font-black">Privacy Policy</h1>
-      <p className="mt-2 text-sm text-muted-foreground">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-8 sm:py-14">
+      <h1 className="text-3xl sm:text-4xl font-black text-brand-navy">Privacy Policy</h1>
+      <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
         Last updated:{" "}
         {new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
       </p>

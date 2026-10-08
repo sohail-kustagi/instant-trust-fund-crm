@@ -91,24 +91,24 @@ export const Customer360 = ({ customerId }: { customerId: string }) => {
   return (
     <div className="w-full max-w-6xl mx-auto space-y-6">
       {/* Premium Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-6 rounded-2xl border shadow-sm">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4 sm:p-6 rounded-2xl border shadow-sm">
         <div>
           <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">Enterprise Customer Hub</span>
-          <h2 className="text-3xl font-black text-slate-900 mt-1 flex items-center gap-2">
-            <User className="h-7 w-7 text-blue-500" /> {profile.name || profile.fullName}'s 360° Profile
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1 flex items-center gap-2">
+            <User className="h-6 w-6 sm:h-7 sm:w-7 text-blue-500" /> {profile.name || profile.fullName}'s 360° Profile
           </h2>
-          <p className="text-sm text-slate-500 mt-1">Unique Customer ID: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs">{profile.customerId || profile._id}</code></p>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1">Unique Customer ID: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs">{profile.customerId || profile._id}</code></p>
         </div>
         
         {analytics && analytics !== '[Redacted - Admin Only]' ? (
-          <div className="flex gap-4">
-            <div className="bg-slate-50 px-4 py-3 rounded-xl border">
-              <span className="text-xs text-slate-500 font-semibold block">Total Loans</span>
-              <strong className="text-lg text-slate-950 font-bold">{analytics.totalLoans}</strong>
+          <div className="flex gap-3 sm:gap-4 w-full md:w-auto">
+            <div className="bg-slate-50 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border flex-1 md:flex-none">
+              <span className="text-[11px] sm:text-xs text-slate-500 font-semibold block">Total Loans</span>
+              <strong className="text-base sm:text-lg text-slate-950 font-bold">{analytics.totalLoans}</strong>
             </div>
-            <div className="bg-slate-50 px-4 py-3 rounded-xl border">
-              <span className="text-xs text-slate-500 font-semibold block">Outstanding Balance</span>
-              <strong className="text-lg text-rose-600 font-bold">₹{analytics.totalOutstanding?.toLocaleString("en-IN")}</strong>
+            <div className="bg-slate-50 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border flex-1 md:flex-none">
+              <span className="text-[11px] sm:text-xs text-slate-500 font-semibold block">Outstanding</span>
+              <strong className="text-base sm:text-lg text-rose-600 font-bold">₹{analytics.totalOutstanding?.toLocaleString("en-IN")}</strong>
             </div>
           </div>
         ) : (
@@ -119,13 +119,15 @@ export const Customer360 = ({ customerId }: { customerId: string }) => {
       </div>
 
       <Tabs defaultValue="profile" className="w-full">
-        <TabsList className="grid w-full grid-cols-5 p-1 bg-slate-100 rounded-xl mb-6">
-          <TabsTrigger value="profile" className="rounded-lg py-2.5 font-semibold text-sm">Personal Info</TabsTrigger>
-          <TabsTrigger value="loans" className="rounded-lg py-2.5 font-semibold text-sm">Loans ({loans?.length || 0})</TabsTrigger>
-          <TabsTrigger value="payments" className="rounded-lg py-2.5 font-semibold text-sm">Payments ({payments?.length || 0})</TabsTrigger>
-          <TabsTrigger value="insurance" className="rounded-lg py-2.5 font-semibold text-sm">Insurance ({insurance?.length || 0})</TabsTrigger>
-          <TabsTrigger value="sms" className="rounded-lg py-2.5 font-semibold text-sm">SMS Log ({smsLogs?.length || 0})</TabsTrigger>
-        </TabsList>
+        <div className="overflow-x-auto no-scrollbar mb-6 pb-1">
+          <TabsList className="inline-flex w-auto min-w-full p-1 bg-slate-100 rounded-xl justify-start">
+            <TabsTrigger value="profile" className="rounded-lg py-2 px-3 font-semibold text-xs sm:text-sm whitespace-nowrap shrink-0">Personal Info</TabsTrigger>
+            <TabsTrigger value="loans" className="rounded-lg py-2 px-3 font-semibold text-xs sm:text-sm whitespace-nowrap shrink-0">Loans ({loans?.length || 0})</TabsTrigger>
+            <TabsTrigger value="payments" className="rounded-lg py-2 px-3 font-semibold text-xs sm:text-sm whitespace-nowrap shrink-0">Payments ({payments?.length || 0})</TabsTrigger>
+            <TabsTrigger value="insurance" className="rounded-lg py-2 px-3 font-semibold text-xs sm:text-sm whitespace-nowrap shrink-0">Insurance ({insurance?.length || 0})</TabsTrigger>
+            <TabsTrigger value="sms" className="rounded-lg py-2 px-3 font-semibold text-xs sm:text-sm whitespace-nowrap shrink-0">SMS Log ({smsLogs?.length || 0})</TabsTrigger>
+          </TabsList>
+        </div>
 
         {/* PROFILE TAB */}
         <TabsContent value="profile" className="mt-0">
@@ -396,13 +398,13 @@ export const Customer360 = ({ customerId }: { customerId: string }) => {
               {smsLogs && smsLogs.length > 0 ? (
                 <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
                   {smsLogs.map((s: any) => (
-                    <div key={s._id} className="p-4 border rounded-xl hover:bg-slate-50/50 transition">
-                      <div className="flex justify-between items-center gap-2">
-                        <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">
+                    <div key={s._id} className="p-3.5 sm:p-4 border rounded-xl hover:bg-slate-50/50 transition">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <span className="text-[11px] sm:text-xs font-semibold bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono truncate max-w-full">
                           Header: {s.headerUsed} | Template: {s.dltTemplateId}
                         </span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs text-slate-400 font-medium">
+                        <div className="flex items-center gap-2 self-start sm:self-center">
+                          <span className="text-[11px] text-slate-400 font-medium">
                             {new Date(s.sentAt || s.createdAt).toLocaleString("en-IN")}
                           </span>
                           <Badge className={
@@ -414,7 +416,7 @@ export const Customer360 = ({ customerId }: { customerId: string }) => {
                           </Badge>
                         </div>
                       </div>
-                      <p className="text-xs text-slate-700 mt-2 bg-slate-50 p-2.5 rounded-lg border font-mono">
+                      <p className="text-xs text-slate-700 mt-2 bg-slate-50 p-2.5 rounded-lg border font-mono break-words">
                         {s.messageText}
                       </p>
                       {s.failureReason && (

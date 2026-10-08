@@ -185,7 +185,7 @@ function LandingPage() {
   return (
     <div className="space-y-0">
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-brand-gradient text-white py-20 px-6 md:py-28">
+      <section className="relative overflow-hidden bg-brand-gradient text-white py-12 px-4 sm:px-6 md:py-24">
         {/* Animated background blobs */}
         <div className="absolute top-1/4 left-10 w-72 h-72 bg-royal-purple/30 rounded-full filter blur-3xl opacity-40 animate-float pointer-events-none" />
         <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-lic-blue/20 rounded-full filter blur-3xl opacity-30 animate-float-delayed pointer-events-none" />
@@ -209,50 +209,49 @@ function LandingPage() {
           <img src={heroImg} alt="" className="h-full w-full object-cover" loading="eager" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl grid gap-12 lg:grid-cols-12 items-center">
-          <div className="lg:col-span-7 space-y-6">
+        <div className="relative mx-auto max-w-7xl grid gap-8 lg:gap-12 lg:grid-cols-12 items-center">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6">
             {/* Logo and Tagline Badge */}
-            <div className="flex flex-wrap items-center gap-4">
-              <img src={logo} alt="Instant Trust Fund Logo" className="h-12 w-auto filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)] shrink-0" />
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              <img src={logo} alt="Instant Trust Fund Logo" className="h-10 sm:h-12 w-auto filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)] shrink-0" />
               <Badge className="bg-gold hover:bg-gold/90 text-dark-navy font-bold px-3 py-1 text-xs tracking-wider animate-pulse shadow-lg">
                 ★ 20+ Years of Trusted Financial Services
               </Badge>
             </div>
 
             {/* Title / Description */}
-            <div className="space-y-4">
-              <h1 className="text-4xl font-extrabold md:text-6xl text-white tracking-tight leading-tight">
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
                 Instant Funds For You
               </h1>
-              <p className="text-sm font-bold text-accent tracking-widest uppercase bg-white/5 border border-white/10 w-fit px-3 py-1 rounded-full backdrop-blur-sm">
-                Loans • Insurance • Property Services • Financial Advisory • CIBIL Reports
+              <p className="text-xs sm:text-sm font-bold text-accent tracking-wide uppercase bg-white/5 border border-white/10 w-fit px-3 py-1.5 rounded-full backdrop-blur-sm leading-relaxed">
+                Loans • Insurance • Property Services • Advisory • CIBIL
               </p>
-              <p className="text-base text-white/80 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-base text-white/85 max-w-xl leading-relaxed">
                 Access premium, low-interest credit lines and comprehensive family insurance. Leverage our 20+ years of trust and proprietary advisory platforms to match with nationalized lenders instantly.
               </p>
             </div>
 
             {/* Leadership Banner (Glassmorphic) */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-md max-w-xl shadow-lg">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center bg-white/5 border border-white/10 p-3 sm:p-4 rounded-2xl backdrop-blur-md max-w-xl shadow-lg">
               <div className="flex items-center gap-3">
-                <Avatar className="h-14 w-14 ring-2 ring-gold shrink-0 shadow-md">
+                <Avatar className="h-12 w-12 sm:h-14 sm:w-14 ring-2 ring-gold shrink-0 shadow-md">
                   <AvatarImage src={founderPhoto} className="object-cover" />
                   <AvatarFallback className="bg-royal-purple text-white">RA</AvatarFallback>
                 </Avatar>
-                <div>
-                  <span className="text-[10px] uppercase font-bold text-gold/90 tracking-wider">Founder & MD</span>
-                  <div className="text-sm font-black text-white">R H Adhoni</div>
+                <div className="min-w-0">
+                  <span className="text-[10px] uppercase font-bold text-gold/90 tracking-wider block">Founder & MD</span>
+                  <div className="text-sm font-black text-white truncate">R H Adhoni</div>
                 </div>
               </div>
-              <div className="hidden sm:block w-px bg-white/10 h-10" />
-              <div className="flex items-center gap-3">
-                <Avatar className="h-14 w-14 ring-2 ring-gold shrink-0 shadow-md">
+              <div className="flex items-center gap-3 border-t sm:border-t-0 sm:border-l border-white/10 pt-2.5 sm:pt-0 sm:pl-3">
+                <Avatar className="h-12 w-12 sm:h-14 sm:w-14 ring-2 ring-gold shrink-0 shadow-md">
                   <AvatarImage src={adminPhoto} className="object-cover" />
                   <AvatarFallback className="bg-royal-purple text-white">BA</AvatarFallback>
                 </Avatar>
-                <div>
-                  <span className="text-[10px] uppercase font-bold text-gold/90 tracking-wider">Chief Administrator</span>
-                  <div className="text-sm font-black text-white">Bibi Ayesha</div>
+                <div className="min-w-0">
+                  <span className="text-[10px] uppercase font-bold text-gold/90 tracking-wider block">Chief Administrator</span>
+                  <div className="text-sm font-black text-white truncate">Bibi Ayesha</div>
                 </div>
               </div>
             </div>
@@ -260,15 +259,15 @@ function LandingPage() {
             {/* Instant Loan Search Bar */}
             <div className="max-w-md relative">
               <div className="relative">
-                <Search className="absolute left-3 top-3.5 h-5 w-5 text-slate-300" />
+                <Search className="absolute left-3 top-3 sm:top-3.5 h-4 sm:h-5 w-4 sm:w-5 text-slate-400 pointer-events-none" />
                 <Input
-                  placeholder="Search 12+ Loan Categories (e.g. Home Loan, Agri)..."
-                  className="pl-10 pr-28 py-6 bg-white/95 text-dark-navy placeholder:text-slate-400 border-none rounded-xl shadow-xl w-full text-xs font-semibold focus:ring-2 focus:ring-gold"
+                  placeholder="Search loans (e.g. Home, Personal)..."
+                  className="pl-9 pr-24 sm:pr-28 py-5 sm:py-6 bg-white/95 text-dark-navy placeholder:text-slate-400 border-none rounded-xl shadow-xl w-full text-xs font-semibold focus:ring-2 focus:ring-gold"
                   value={loanQuery}
                   onChange={(e) => setLoanQuery(e.target.value)}
                 />
                 <Button
-                  className="absolute right-2 top-2 bg-gradient-to-r from-royal-purple to-lic-blue hover:from-royal-purple hover:to-sbi-blue text-white font-bold text-xs px-4 shadow-md transition-all duration-300"
+                  className="absolute right-1.5 top-1.5 sm:right-2 sm:top-2 bg-gradient-to-r from-royal-purple to-lic-blue hover:from-royal-purple hover:to-sbi-blue text-white font-bold text-xs h-8 sm:h-9 px-3 sm:px-4 shadow-md transition-all duration-300"
                   onClick={() => {
                     const el = document.getElementById("loans-grid");
                     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -279,13 +278,13 @@ function LandingPage() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex flex-wrap gap-2.5 sm:gap-4 pt-2">
               <Button
                 onClick={() => {
                   const el = document.getElementById("calculator-section");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="bg-gold text-dark-navy hover:bg-gold/90 font-bold px-6 shadow-md hover:scale-105 transition-transform"
+                className="flex-1 sm:flex-none text-xs sm:text-sm bg-gold text-dark-navy hover:bg-gold/90 font-bold px-4 sm:px-6 shadow-md transition-transform"
               >
                 EMI Calculator
               </Button>
@@ -294,7 +293,7 @@ function LandingPage() {
                   const el = document.getElementById("calculator-section");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="bg-turquoise text-dark-navy hover:bg-turquoise/90 font-bold px-6 shadow-md hover:scale-105 transition-transform"
+                className="flex-1 sm:flex-none text-xs sm:text-sm bg-turquoise text-dark-navy hover:bg-turquoise/90 font-bold px-4 sm:px-6 shadow-md transition-transform"
               >
                 Eligibility Appraiser
               </Button>
@@ -303,7 +302,7 @@ function LandingPage() {
                   const el = document.getElementById("loans-grid");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="bg-transparent border border-white/40 hover:bg-white/10 font-bold px-6 text-white"
+                className="w-full sm:w-auto text-xs sm:text-sm bg-transparent border border-white/40 hover:bg-white/10 font-bold px-4 sm:px-6 text-white"
               >
                 Apply Now &rarr;
               </Button>
@@ -312,7 +311,7 @@ function LandingPage() {
 
           {/* Quick Quote Widget (Glassmorphism card) */}
           <div className="lg:col-span-5">
-            <Card className="p-6 border bg-glass border-glass backdrop-blur-xl shadow-2xl text-white relative overflow-hidden animate-pulse-glow">
+            <Card className="p-4 sm:p-6 border bg-glass border-glass backdrop-blur-xl shadow-2xl text-white relative overflow-hidden animate-pulse-glow">
               <div className="absolute -right-8 -top-8 w-24 h-24 bg-gold/10 rounded-full filter blur-xl" />
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-gold fill-gold" />
@@ -344,7 +343,7 @@ function LandingPage() {
                     <option>Health Policy</option>
                   </select>
                 </div>
-                <Button type="submit" className="w-full bg-gradient-to-r from-gold via-soft-pink to-turquoise hover:from-turquoise hover:to-gold text-dark-navy font-bold text-sm mt-3 py-5 shadow-lg transition-all duration-500">
+                <Button type="submit" className="w-full bg-gradient-to-r from-gold via-soft-pink to-turquoise hover:from-turquoise hover:to-gold text-dark-navy font-bold text-sm mt-3 py-4 sm:py-5 shadow-lg transition-all duration-500">
                   Request Call Back
                 </Button>
               </form>
@@ -353,37 +352,37 @@ function LandingPage() {
         </div>
       </section>
       {/* 2. Channel Partners Section */}
-      <section className="bg-gradient-to-b from-lic-blue/10 via-sbi-blue/5 to-gold/10 py-16 border-b overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 space-y-12">
+      <section className="bg-gradient-to-b from-lic-blue/10 via-sbi-blue/5 to-gold/10 py-12 sm:py-16 border-b overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-12">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-2">
             <div className="flex items-center justify-center gap-2">
               <Sparkles className="h-4 w-4 text-gold fill-gold animate-pulse" />
               <Badge className="bg-gold text-dark-navy font-bold">Network Reach</Badge>
             </div>
-            <h2 className="text-3xl font-black text-brand-navy md:text-4xl">Our Trusted Channel Partners</h2>
+            <h2 className="text-2xl sm:text-3xl font-black text-brand-navy md:text-4xl">Our Trusted Channel Partners</h2>
             <p className="text-xs text-muted-foreground leading-relaxed">
               We proudly partner with India's leading banks, NBFCs, insurance companies, and financial institutions to provide the best loan and insurance solutions.
             </p>
           </div>
 
           {/* Marquees */}
-          <div className="space-y-8">
+          <div className="space-y-8 w-full overflow-hidden">
             {/* Lending Partners Marquee */}
             <div className="space-y-2">
               <h4 className="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-1">Associate Lending Banks & NBFCs</h4>
               <div className="relative flex overflow-x-hidden py-2">
-                <div className="animate-marquee flex gap-4 whitespace-nowrap items-center">
+                <div className="animate-marquee flex gap-3 sm:gap-4 whitespace-nowrap items-center">
                   {loanPartners.map((p, idx) => (
-                    <div key={idx} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
+                    <div key={idx} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
                       <span className="h-2 w-2 rounded-full bg-sbi-blue inline-block shadow-sm" />
                       <span className="text-xs font-extrabold text-brand-navy tracking-tight">{p}</span>
                     </div>
                   ))}
                 </div>
-                <div className="absolute top-2 animate-marquee2 flex gap-4 whitespace-nowrap items-center">
+                <div className="absolute top-2 animate-marquee2 flex gap-3 sm:gap-4 whitespace-nowrap items-center">
                   {loanPartners.map((p, idx) => (
-                    <div key={`dup-${idx}`} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
+                    <div key={`dup-${idx}`} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
                       <span className="h-2 w-2 rounded-full bg-sbi-blue inline-block shadow-sm" />
                       <span className="text-xs font-extrabold text-brand-navy tracking-tight">{p}</span>
                     </div>
@@ -396,17 +395,17 @@ function LandingPage() {
             <div className="space-y-2">
               <h4 className="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-1">Authorized Insurance Carriers</h4>
               <div className="relative flex overflow-x-hidden py-2">
-                <div className="animate-marquee flex gap-4 whitespace-nowrap items-center [animation-direction:reverse]">
+                <div className="animate-marquee flex gap-3 sm:gap-4 whitespace-nowrap items-center [animation-direction:reverse]">
                   {insurancePartners.map((p, idx) => (
-                    <div key={idx} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
+                    <div key={idx} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
                       <span className="h-2 w-2 rounded-full bg-lic-blue inline-block shadow-sm" />
                       <span className="text-xs font-extrabold text-brand-navy tracking-tight">{p}</span>
                     </div>
                   ))}
                 </div>
-                <div className="absolute top-2 animate-marquee2 flex gap-4 whitespace-nowrap items-center [animation-direction:reverse]">
+                <div className="absolute top-2 animate-marquee2 flex gap-3 sm:gap-4 whitespace-nowrap items-center [animation-direction:reverse]">
                   {insurancePartners.map((p, idx) => (
-                    <div key={`dup-${idx}`} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
+                    <div key={`dup-${idx}`} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
                       <span className="h-2 w-2 rounded-full bg-lic-blue inline-block shadow-sm" />
                       <span className="text-xs font-extrabold text-brand-navy tracking-tight">{p}</span>
                     </div>
@@ -419,17 +418,17 @@ function LandingPage() {
             <div className="space-y-2">
               <h4 className="text-[10px] uppercase font-bold text-slate-400 tracking-widest pl-1">Technology & Distribution Partners</h4>
               <div className="relative flex overflow-x-hidden py-2">
-                <div className="animate-marquee flex gap-4 whitespace-nowrap items-center">
+                <div className="animate-marquee flex gap-3 sm:gap-4 whitespace-nowrap items-center">
                   {techPartners.map((p, idx) => (
-                    <div key={idx} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
+                    <div key={idx} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
                       <span className="h-2 w-2 rounded-full bg-turquoise inline-block shadow-sm" />
                       <span className="text-xs font-extrabold text-brand-navy tracking-tight">{p}</span>
                     </div>
                   ))}
                 </div>
-                <div className="absolute top-2 animate-marquee2 flex gap-4 whitespace-nowrap items-center">
+                <div className="absolute top-2 animate-marquee2 flex gap-3 sm:gap-4 whitespace-nowrap items-center">
                   {techPartners.map((p, idx) => (
-                    <div key={`dup-${idx}`} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
+                    <div key={`dup-${idx}`} className="flex items-center gap-2 border border-slate-200/50 bg-white/70 backdrop-blur-md px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-sm hover:shadow-md hover:border-gold/50 transition-all duration-300 shrink-0 cursor-pointer">
                       <span className="h-2 w-2 rounded-full bg-turquoise inline-block shadow-sm" />
                       <span className="text-xs font-extrabold text-brand-navy tracking-tight">{p}</span>
                     </div>
@@ -441,9 +440,9 @@ function LandingPage() {
         </div>
       </section>
       {/* 2.5 Statistics Section */}
-      <section className="bg-gradient-to-br from-sbi-blue/10 via-gold/5 to-lic-blue/10 py-16 border-b">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      <section className="bg-gradient-to-br from-sbi-blue/10 via-gold/5 to-lic-blue/10 py-12 sm:py-16 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid gap-3 sm:gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-5">
             {[
               { val: "20+", label: "Years Experience", desc: "Trusted banking consulting since 2006", color: "from-royal-purple to-lic-blue" },
               { val: "25+", label: "Partner Banks", desc: "Nationalized & private banking tie-ups", color: "from-lic-blue to-sbi-blue" },
@@ -451,15 +450,15 @@ function LandingPage() {
               { val: "₹250 Cr+", label: "Loans Processed", desc: "Substantial capital disbursements", color: "from-royal-purple to-soft-pink" },
               { val: "98%", label: "Approval Success", desc: "Industry-leading approval rates", color: "from-soft-pink to-gold" }
             ].map((stat, idx) => (
-              <Card key={idx} className="p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-md hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 text-center relative overflow-hidden group">
+              <Card key={idx} className={`p-4 sm:p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-md hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 text-center relative overflow-hidden group ${idx === 4 ? "col-span-2 lg:col-span-1" : ""}`}>
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-royal-purple to-lic-blue opacity-70" />
-                <span className={`text-3xl md:text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent block mb-1 group-hover:scale-105 transition-transform`}>
+                <span className={`text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent block mb-1 group-hover:scale-105 transition-transform`}>
                   {stat.val}
                 </span>
-                <span className="text-xs font-black text-brand-navy block tracking-wide uppercase mb-1">
+                <span className="text-[11px] sm:text-xs font-black text-brand-navy block tracking-wide uppercase mb-1">
                   {stat.label}
                 </span>
-                <p className="text-[11px] text-muted-foreground leading-snug">
+                <p className="text-[10px] sm:text-[11px] text-muted-foreground leading-snug">
                   {stat.desc}
                 </p>
               </Card>
@@ -468,24 +467,24 @@ function LandingPage() {
         </div>
       </section>
 
-      <section id="loans-grid" className="bg-gradient-to-b from-lic-blue/10 via-gold/5 to-sbi-blue/10 px-6 py-20 space-y-10 border-b">
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <Badge className="bg-gradient-to-r from-royal-purple to-lic-blue text-white font-bold shadow-md px-3 py-1">12 Active Products</Badge>
-          <h2 className="text-3xl font-extrabold text-brand-navy">Explore Customized Loans</h2>
+      <section id="loans-grid" className="bg-gradient-to-b from-lic-blue/10 via-gold/5 to-sbi-blue/10 px-4 sm:px-6 py-12 sm:py-20 space-y-8 sm:space-y-10 border-b">
+        <div className="text-center max-w-2xl mx-auto space-y-2 sm:space-y-3">
+          <Badge className="bg-gradient-to-r from-royal-purple to-lic-blue text-white font-bold shadow-md px-3 py-1 text-xs">12 Active Products</Badge>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-navy">Explore Customized Loans</h2>
           <p className="text-xs text-muted-foreground">Find structured interest rates, low processing fees, and doorstep delivery for all categories.</p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-7xl mx-auto">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-7xl mx-auto">
           {filteredLoans.map((l) => {
             const IconComponent = l.icon;
             return (
-              <Card key={l.name} className="p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-md hover:shadow-elevated transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden group">
+              <Card key={l.name} className="p-5 sm:p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-md hover:shadow-elevated transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden group">
                 {/* Visual Accent Gradient Border */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-royal-purple via-lic-blue to-sbi-blue opacity-80" />
                 
                 {/* Icon Wrapper with Glow */}
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-royal-purple/10 to-lic-blue/10 text-royal-purple flex items-center justify-center mb-4 transition-all duration-300 group-hover:from-royal-purple group-hover:to-lic-blue group-hover:text-white shadow-inner">
-                  <IconComponent className="h-6 w-6" />
+                <div className="h-11 w-11 sm:h-12 sm:w-12 rounded-xl bg-gradient-to-br from-royal-purple/10 to-lic-blue/10 text-royal-purple flex items-center justify-center mb-3 sm:mb-4 transition-all duration-300 group-hover:from-royal-purple group-hover:to-lic-blue group-hover:text-white shadow-inner">
+                  <IconComponent className="h-5 w-5 sm:h-6 sm:w-6" />
                 </div>
 
                 <h3 className="font-extrabold text-brand-navy group-hover:text-primary transition-colors text-sm">{l.name}</h3>
@@ -517,12 +516,12 @@ function LandingPage() {
         </div>
       </section>
       {/* 4. Interactive Calculators Section */}
-      <section id="calculator-section" className="bg-gradient-to-tr from-sbi-blue/10 via-lic-blue/5 to-gold/10 border-t border-b py-16 px-6">
-        <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2">
+      <section id="calculator-section" className="bg-gradient-to-tr from-sbi-blue/10 via-lic-blue/5 to-gold/10 border-t border-b py-12 sm:py-16 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto grid gap-8 lg:gap-12 lg:grid-cols-2">
           {/* EMI Calculator */}
-          <Card className="p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-card space-y-6">
+          <Card className="p-4 sm:p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-card space-y-5 sm:space-y-6">
             <div>
-              <h3 className="text-lg font-bold text-brand-navy">EMI Repayment Estimator</h3>
+              <h3 className="text-base sm:text-lg font-bold text-brand-navy">EMI Repayment Estimator</h3>
               <p className="text-xs text-muted-foreground mt-0.5">Calculate your monthly outflow instantly based on loan parameters.</p>
             </div>
 
@@ -530,7 +529,7 @@ function LandingPage() {
               <div>
                 <div className="flex justify-between text-xs font-bold text-slate-700 mb-1">
                   <span>Loan Amount</span>
-                  <span className="text-primary">₹{loanAmt.toLocaleString()}</span>
+                  <span className="text-primary font-black">₹{loanAmt.toLocaleString()}</span>
                 </div>
                 <input
                   type="range"
@@ -546,7 +545,7 @@ function LandingPage() {
               <div>
                 <div className="flex justify-between text-xs font-bold text-slate-700 mb-1">
                   <span>Annual Interest Rate (%)</span>
-                  <span className="text-primary">{interestRate}%</span>
+                  <span className="text-primary font-black">{interestRate}%</span>
                 </div>
                 <input
                   type="range"
@@ -562,7 +561,7 @@ function LandingPage() {
               <div>
                 <div className="flex justify-between text-xs font-bold text-slate-700 mb-1">
                   <span>Tenure (Years)</span>
-                  <span className="text-primary">{tenureYears} yrs</span>
+                  <span className="text-primary font-black">{tenureYears} yrs</span>
                 </div>
                 <input
                   type="range"
@@ -576,16 +575,16 @@ function LandingPage() {
               </div>
             </div>
 
-            <div className="border-t pt-4 grid grid-cols-3 gap-2 text-center">
-              <div className="bg-slate-50 p-3 rounded-lg border">
+            <div className="border-t pt-4 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-center">
+              <div className="bg-slate-50 p-2.5 sm:p-3 rounded-lg border">
                 <span className="text-[10px] text-muted-foreground uppercase block font-semibold">Monthly EMI</span>
                 <span className="text-sm font-black text-brand-navy">₹{calculatedEmi.toLocaleString()}</span>
               </div>
-              <div className="bg-slate-50 p-3 rounded-lg border">
+              <div className="bg-slate-50 p-2.5 sm:p-3 rounded-lg border">
                 <span className="text-[10px] text-muted-foreground uppercase block font-semibold">Total Interest</span>
                 <span className="text-sm font-black text-brand-navy">₹{totalInterest.toLocaleString()}</span>
               </div>
-              <div className="bg-slate-50 p-3 rounded-lg border text-primary">
+              <div className="bg-slate-50 p-2.5 sm:p-3 rounded-lg border text-primary">
                 <span className="text-[10px] text-primary/80 uppercase block font-semibold">Total Payment</span>
                 <span className="text-sm font-black">₹{totalPayment.toLocaleString()}</span>
               </div>
@@ -593,9 +592,9 @@ function LandingPage() {
           </Card>
 
           {/* Age Calculator */}
-          <Card className="p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-card space-y-6">
+          <Card className="p-4 sm:p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-card space-y-5 sm:space-y-6">
             <div>
-              <h3 className="text-lg font-bold text-brand-navy">Age Eligibility Appraiser</h3>
+              <h3 className="text-base sm:text-lg font-bold text-brand-navy">Age Eligibility Appraiser</h3>
               <p className="text-xs text-muted-foreground mt-0.5">Toggle your age value below to discover custom portfolio matches.</p>
             </div>
 
@@ -603,7 +602,7 @@ function LandingPage() {
               <div>
                 <div className="flex justify-between text-xs font-bold text-slate-700 mb-1">
                   <span>Current Age</span>
-                  <span className="text-primary">{age} Years Old</span>
+                  <span className="text-primary font-black">{age} Years Old</span>
                 </div>
                 <input
                   type="range"
@@ -631,29 +630,29 @@ function LandingPage() {
       </section>
 
       {/* 5. CIBIL Services Banner */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <Card className="bg-gradient-to-r from-royal-purple to-lic-blue text-white p-8 rounded-2xl shadow-elevated grid md:grid-cols-12 gap-6 items-center">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <Card className="bg-gradient-to-r from-royal-purple to-lic-blue text-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-elevated grid md:grid-cols-12 gap-6 items-center">
           <div className="md:col-span-8 space-y-3">
-            <Badge className="bg-gold text-dark-navy font-bold px-2 py-0.5">Powered by TransUnion</Badge>
-            <h2 className="text-2xl font-black md:text-3xl text-white">Check Your CIBIL Score Online</h2>
-            <p className="text-xs text-white/90 max-w-xl">
+            <Badge className="bg-gold text-dark-navy font-bold px-2 py-0.5 text-xs">Powered by TransUnion</Badge>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white">Check Your CIBIL Score Online</h2>
+            <p className="text-xs text-white/90 max-w-xl leading-relaxed">
               Understand your creditworthiness, access personalized loan eligibility guidance, and track bureau requests securely. Charges apply only when an authorised provider confirms a request.
             </p>
           </div>
           <div className="md:col-span-4 flex flex-col gap-2">
             <Link to="/cibil">
-              <Button className="w-full bg-gold text-dark-navy hover:bg-gold/90 font-bold">
+              <Button className="w-full bg-gold text-dark-navy hover:bg-gold/90 font-bold text-xs sm:text-sm py-2 sm:py-2.5">
                 Generate CIBIL Report
               </Button>
             </Link>
             <Button
-              className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold"
+              className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold text-xs sm:text-sm"
               onClick={() => toast.success("Loading credit score improvement guidelines...")}
             >
               Improve Score
             </Button>
             <Button
-              className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold"
+              className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold text-xs sm:text-sm"
               onClick={() => toast.success("Loan eligibility request initiated.")}
             >
               Eligibility Report
@@ -662,25 +661,25 @@ function LandingPage() {
         </Card>
       </section>
       {/* 6. Insurance Categories */}
-      <section id="insurance-grid" className="bg-gradient-to-br from-gold/10 via-lic-blue/5 to-sbi-blue/10 py-20 px-6 border-t border-b">
-        <div className="max-w-7xl mx-auto space-y-10">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <Badge className="bg-gradient-to-r from-lic-blue to-sbi-blue text-white font-bold shadow-md px-3 py-1">7 Active Coverages</Badge>
-            <h2 className="text-3xl font-extrabold text-brand-navy">All Insurance Covers</h2>
+      <section id="insurance-grid" className="bg-gradient-to-br from-gold/10 via-lic-blue/5 to-sbi-blue/10 py-12 sm:py-20 px-4 sm:px-6 border-t border-b">
+        <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10">
+          <div className="text-center max-w-2xl mx-auto space-y-2 sm:space-y-3">
+            <Badge className="bg-gradient-to-r from-lic-blue to-sbi-blue text-white font-bold shadow-md px-3 py-1 text-xs">7 Active Coverages</Badge>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-navy">All Insurance Covers</h2>
             <p className="text-xs text-muted-foreground">Cashless coverage, quick claim support, and hassle-free online renewals.</p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {extendedInsurance.map((i) => {
               const Icon = i.icon;
               return (
-                <Card key={i.name} className="p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-md hover:shadow-elevated transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden group">
+                <Card key={i.name} className="p-5 sm:p-6 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-md hover:shadow-elevated transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden group">
                   {/* Decorative Border */}
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-lic-blue via-sbi-blue to-turquoise opacity-85" />
                   
                   {/* Icon with glow */}
-                  <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-lic-blue/10 to-sbi-blue/10 text-lic-blue flex items-center justify-center mb-4 transition-all duration-300 group-hover:from-lic-blue group-hover:to-sbi-blue group-hover:text-white shadow-inner">
-                    <Icon className="h-6 w-6" />
+                  <div className="h-11 w-11 sm:h-12 sm:w-12 rounded-xl bg-gradient-to-br from-lic-blue/10 to-sbi-blue/10 text-lic-blue flex items-center justify-center mb-3 sm:mb-4 transition-all duration-300 group-hover:from-lic-blue group-hover:to-sbi-blue group-hover:text-white shadow-inner">
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
 
                   <h3 className="font-extrabold text-brand-navy group-hover:text-secondary transition-colors text-sm">{i.name}</h3>
@@ -711,13 +710,13 @@ function LandingPage() {
         </div>
       </section>
       {/* 6.5 RenewBuy Channel Partner Banner */}
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        <Card className="bg-gradient-to-r from-slate-900 via-brand-navy to-slate-900 text-white p-8 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden grid md:grid-cols-12 gap-8 items-center">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+        <Card className="bg-gradient-to-r from-slate-900 via-brand-navy to-slate-900 text-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden grid md:grid-cols-12 gap-6 sm:gap-8 items-center">
           <div className="absolute -left-12 -bottom-12 w-48 h-48 bg-soft-pink/10 rounded-full filter blur-3xl pointer-events-none" />
           <div className="absolute -right-12 -top-12 w-48 h-48 bg-gold/10 rounded-full filter blur-3xl pointer-events-none" />
           
-          <div className="md:col-span-8 space-y-4 relative z-10">
-            <div className="flex flex-wrap items-center gap-3">
+          <div className="md:col-span-8 space-y-3 sm:space-y-4 relative z-10">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <div className="flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full backdrop-blur-md">
                 <span className="h-2 w-2 rounded-full bg-[#E31E24] animate-ping" />
                 <span className="text-[10px] font-black uppercase tracking-wider text-slate-200">Authorized Channel Partner</span>
@@ -725,7 +724,7 @@ function LandingPage() {
               <Badge className="bg-gold text-dark-navy font-black text-xs">RENEWBUY INTEGRATION</Badge>
             </div>
             
-            <h2 className="text-2xl font-black md:text-3xl text-white tracking-tight leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-tight">
               Compare &amp; Purchase via RenewBuy Partner Network
             </h2>
             
@@ -734,10 +733,10 @@ function LandingPage() {
             </p>
           </div>
           
-          <div className="md:col-span-4 flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md shadow-inner gap-4 relative z-10">
+          <div className="md:col-span-4 flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md shadow-inner gap-4 relative z-10">
             {/* RenewBuy SVG Logo */}
-            <div className="bg-white px-5 py-3.5 rounded-xl shadow-md border border-slate-100 flex items-center justify-center">
-              <svg viewBox="0 0 200 50" className="h-8 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="bg-white px-5 py-3 rounded-xl shadow-md border border-slate-100 flex items-center justify-center">
+              <svg viewBox="0 0 200 50" className="h-7 sm:h-8 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="25" cy="25" r="18" fill="#E31E24" />
                 <path d="M18 25 L23 30 L32 18" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
                 <text x="52" y="32" fill="#1E293B" fontSize="22" fontWeight="black" fontFamily="sans-serif">renew</text>
@@ -747,13 +746,13 @@ function LandingPage() {
             
             <div className="w-full space-y-2">
               <Link to="/insurance">
-                <Button className="w-full bg-gold text-dark-navy hover:bg-gold/90 font-bold text-xs py-4.5 rounded-xl shadow-md transition-all duration-300">
+                <Button className="w-full bg-gold text-dark-navy hover:bg-gold/90 font-bold text-xs py-3 sm:py-4 rounded-xl shadow-md transition-all duration-300">
                   Explore Insurance
                 </Button>
               </Link>
               <Button
                 variant="outline"
-                className="w-full border-white/20 bg-white/5 text-white hover:bg-white/10 font-bold text-xs py-4.5 rounded-xl transition-all duration-300"
+                className="w-full border-white/20 bg-white/5 text-white hover:bg-white/10 font-bold text-xs py-3 sm:py-4 rounded-xl transition-all duration-300"
                 onClick={() => {
                   const el = document.getElementById("callback-form");
                   if (el) {
@@ -770,43 +769,43 @@ function LandingPage() {
       </section>
 
       {/* 7. Loan Approval Timeline */}
-      <section className="max-w-7xl mx-auto my-12 p-8 md:p-12 rounded-3xl bg-gradient-to-br from-sbi-blue/10 via-lic-blue/5 to-gold/10 border border-slate-200/50 shadow-xl space-y-8">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-extrabold text-brand-navy">Fast Approval Timeline</h2>
-          <p className="text-sm text-muted-foreground mt-1">Get your funds dispersed with minimal roadblocks. Here is our workflow:</p>
+      <section className="mx-4 sm:mx-auto max-w-7xl my-8 sm:my-12 p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-sbi-blue/10 via-lic-blue/5 to-gold/10 border border-slate-200/50 shadow-xl space-y-6 sm:space-y-8">
+        <div className="text-center max-w-2xl mx-auto space-y-1 sm:space-y-2">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-navy">Fast Approval Timeline</h2>
+          <p className="text-xs sm:text-sm text-muted-foreground">Get your funds dispersed with minimal roadblocks. Here is our workflow:</p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           {[
             { step: "1", title: "Enquire Online", desc: "Select product, fill primary parameters, and generate credit app." },
             { step: "2", title: "Verify Credentials", desc: "Complete paperless KYC check and appraise loan parameters." },
             { step: "3", title: "Property Audit", desc: "For secure loans, survey parcels mapped using Bhoomi & Dishank." },
             { step: "4", title: "Disbursal", desc: "Approved amount routed to your verified bank account in 24 hours." }
           ].map((item, idx) => (
-            <Card key={idx} className="p-6 border shadow-sm relative overflow-hidden">
-              <span className="absolute right-3 top-3 text-4xl font-black text-slate-100">{item.step}</span>
-              <h4 className="font-bold text-brand-navy text-sm relative z-10">{item.title}</h4>
-              <p className="text-xs text-muted-foreground mt-2 leading-relaxed relative z-10">{item.desc}</p>
+            <Card key={idx} className="p-4 sm:p-6 border shadow-sm relative overflow-hidden">
+              <span className="absolute right-3 top-3 text-3xl sm:text-4xl font-black text-slate-100">{item.step}</span>
+              <h4 className="font-bold text-brand-navy text-xs sm:text-sm relative z-10">{item.title}</h4>
+              <p className="text-[11px] sm:text-xs text-muted-foreground mt-2 leading-relaxed relative z-10">{item.desc}</p>
             </Card>
           ))}
         </div>
       </section>
 
       {/* 8. FAQs */}
-      <section className="bg-gradient-to-b from-lic-blue/10 via-sbi-blue/5 to-gold/10 py-16 px-6 border-t border-b">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <div className="text-center space-y-2">
-            <h2 className="text-3xl font-extrabold text-brand-navy">Frequently Asked Questions</h2>
+      <section className="bg-gradient-to-b from-lic-blue/10 via-sbi-blue/5 to-gold/10 py-12 sm:py-16 px-4 sm:px-6 border-t border-b">
+        <div className="max-w-3xl mx-auto space-y-6 sm:space-y-8">
+          <div className="text-center space-y-1 sm:space-y-2">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-navy">Frequently Asked Questions</h2>
             <p className="text-xs text-muted-foreground">General inquiries about eligibility, documents, and interest calculation.</p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {[
               { q: "What is the average timeline for loan sanction?", a: "Unsecured personal and business loans are approved within 24 hours. Mortgages and home loans take 4-7 banking days depending on local land audits." },
               { q: "Do you charge extra consulting fee?", a: "No, Instant Trust Fund provides transparent advisory comparisons. Our consulting costs are covered directly by lending partners without adding marks to your rates." },
               { q: "How are properties verified?", a: "We sync with Karnataka Bhoomi title servers and Dishank spatial coordinates to run primary verification on secure land properties." }
             ].map((faq, idx) => (
-              <Card key={idx} className="p-5 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-sm space-y-2">
+              <Card key={idx} className="p-4 sm:p-5 border border-slate-200/50 bg-white/70 backdrop-blur-md shadow-sm space-y-1.5 sm:space-y-2">
                 <h4 className="text-xs font-bold text-brand-navy flex items-center gap-1.5">
                   <HelpCircle className="h-4 w-4 text-primary shrink-0" /> {faq.q}
                 </h4>

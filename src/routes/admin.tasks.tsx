@@ -60,58 +60,56 @@ function AdminTasks() {
 
   const urgentCount = allTasks.filter((t: any) => t.priority === "Urgent").length;
   const inProgressCount = allTasks.filter((t: any) => t.status === "In Progress").length;
-  const completedCount = allTasks.filter((t: any) => t.status === "Completed").length;
-
-  return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+  const completedCount = allTasks.filter((t: any) => t.status === "Completed").length;  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-3xl font-black text-brand-navy">Operations & Verification Tasks</h1>
-            <Badge className="bg-primary/10 text-primary font-semibold">
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">Operations & Verification Tasks</h1>
+            <Badge className="bg-primary/10 text-primary font-semibold text-xs">
               Live Queue
             </Badge>
           </div>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Manage daily document verification, KGIS land survey checks, and bank coordination.
           </p>
         </div>
 
         <Button
           onClick={() => toast.info("Task creation dialog opened (Demo Mode)")}
-          className="bg-primary hover:bg-brand-navy flex items-center gap-2"
+          className="bg-primary hover:bg-brand-navy flex items-center gap-2 text-xs sm:text-sm h-9 sm:h-10"
         >
           <Plus className="h-4 w-4" /> Create New Task
         </Button>
       </div>
 
       {/* Task Summary Metrics */}
-      <div className="grid gap-4 sm:grid-cols-4 mb-8">
-        <Card className="p-4 border shadow-sm">
-          <span className="text-xs uppercase font-bold text-muted-foreground">Total In Queue</span>
-          <div className="text-2xl font-black mt-1 text-brand-navy">{allTasks.length}</div>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <Card className="p-3.5 sm:p-4 border shadow-sm">
+          <span className="text-[11px] sm:text-xs uppercase font-bold text-muted-foreground">Total In Queue</span>
+          <div className="text-xl sm:text-2xl font-black mt-1 text-brand-navy">{allTasks.length}</div>
         </Card>
-        <Card className="p-4 border shadow-sm border-rose-200 bg-rose-50/30">
-          <span className="text-xs uppercase font-bold text-rose-600">Urgent Attention</span>
-          <div className="text-2xl font-black mt-1 text-rose-600">{urgentCount}</div>
+        <Card className="p-3.5 sm:p-4 border shadow-sm border-rose-200 bg-rose-50/30">
+          <span className="text-[11px] sm:text-xs uppercase font-bold text-rose-600">Urgent Attention</span>
+          <div className="text-xl sm:text-2xl font-black mt-1 text-rose-600">{urgentCount}</div>
         </Card>
-        <Card className="p-4 border shadow-sm border-amber-200 bg-amber-50/30">
-          <span className="text-xs uppercase font-bold text-amber-700">In Progress</span>
-          <div className="text-2xl font-black mt-1 text-amber-700">{inProgressCount}</div>
+        <Card className="p-3.5 sm:p-4 border shadow-sm border-amber-200 bg-amber-50/30">
+          <span className="text-[11px] sm:text-xs uppercase font-bold text-amber-700">In Progress</span>
+          <div className="text-xl sm:text-2xl font-black mt-1 text-amber-700">{inProgressCount}</div>
         </Card>
-        <Card className="p-4 border shadow-sm border-emerald-200 bg-emerald-50/30">
-          <span className="text-xs uppercase font-bold text-emerald-600">Completed Today</span>
-          <div className="text-2xl font-black mt-1 text-emerald-600">{completedCount}</div>
+        <Card className="p-3.5 sm:p-4 border shadow-sm border-emerald-200 bg-emerald-50/30">
+          <span className="text-[11px] sm:text-xs uppercase font-bold text-emerald-600">Completed Today</span>
+          <div className="text-xl sm:text-2xl font-black mt-1 text-emerald-600">{completedCount}</div>
         </Card>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center gap-2 pb-4 border-b mb-6">
+      <div className="flex items-center gap-2 pb-3 border-b mb-6 overflow-x-auto no-scrollbar">
         {["All", "Urgent", "Pending", "In Progress", "Completed"].map((tab) => (
           <button
             key={tab}
             onClick={() => setFilter(tab)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition whitespace-nowrap ${
               filter === tab
                 ? "bg-brand-navy text-white shadow-sm"
                 : "bg-slate-100 text-slate-600 hover:bg-slate-200"
@@ -125,7 +123,7 @@ function AdminTasks() {
       {/* Task List */}
       <div className="space-y-3">
         {filteredTasks.length === 0 ? (
-          <Card className="p-10 text-center border-dashed">
+          <Card className="p-8 sm:p-10 text-center border-dashed">
             <CheckCircle2 className="h-10 w-10 text-slate-300 mx-auto mb-2" />
             <p className="text-sm font-semibold text-slate-600">No tasks in this view</p>
           </Card>
@@ -135,15 +133,15 @@ function AdminTasks() {
             return (
               <Card
                 key={task.id}
-                className={`p-5 border transition hover:shadow-md ${
+                className={`p-4 sm:p-5 border transition hover:shadow-md ${
                   isCompleted ? "bg-slate-50 opacity-75" : "bg-card"
                 }`}
               >
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-start gap-3">
                     <button
                       onClick={() => handleToggleComplete(task.id)}
-                      className={`mt-1 h-5 w-5 rounded border flex items-center justify-center transition ${
+                      className={`mt-1 h-5 w-5 rounded border flex items-center justify-center transition shrink-0 ${
                         isCompleted
                           ? "bg-emerald-500 border-emerald-500 text-white"
                           : "border-slate-300 hover:border-primary"
@@ -154,14 +152,14 @@ function AdminTasks() {
 
                     <div>
                       <h3
-                        className={`text-base font-bold text-brand-navy ${
+                        className={`text-sm sm:text-base font-bold text-brand-navy ${
                           isCompleted ? "line-through text-slate-400" : ""
                         }`}
                       >
                         {task.title}
                       </h3>
 
-                      <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-muted-foreground">
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-1.5 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1 font-medium text-slate-700">
                           <User className="h-3.5 w-3.5 text-primary" />
                           {task.customer}
@@ -180,10 +178,10 @@ function AdminTasks() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 self-end md:self-center">
+                  <div className="flex items-center gap-2 self-start sm:self-center shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 w-full sm:w-auto justify-end">
                     <Badge
                       variant="outline"
-                      className={`text-xs font-semibold ${
+                      className={`text-[11px] sm:text-xs font-semibold ${
                         task.priority === "Urgent"
                           ? "border-rose-300 text-rose-600 bg-rose-50"
                           : task.priority === "High"
@@ -195,7 +193,7 @@ function AdminTasks() {
                     </Badge>
 
                     <Badge
-                      className={`text-xs font-semibold ${
+                      className={`text-[11px] sm:text-xs font-semibold ${
                         isCompleted
                           ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-100"
                           : task.status === "In Progress"

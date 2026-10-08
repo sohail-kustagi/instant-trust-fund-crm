@@ -152,24 +152,24 @@ function CibilPage() {
   if (completedCheck || step === "dashboard") {
     const activeScore = completedCheck?.creditScore || 780;
     return (
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto space-y-8">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-8 sm:py-12 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
           <div className="flex items-center justify-between border-b pb-5 flex-wrap gap-4">
             <div>
               <Badge className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800 font-extrabold px-3 py-1 mb-2 text-xs">
                 ⚡ Bureau Check Complete
               </Badge>
-              <h1 className="text-3xl font-black text-brand-navy dark:text-white tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-brand-navy dark:text-white tracking-tight">
                 Credit Health Command Center
               </h1>
-              <p className="text-sm text-slate-500 mt-1 font-medium">
+              <p className="text-xs sm:text-sm text-slate-500 mt-1 font-medium">
                 Live TransUnion CIBIL data for {user?.fullName || "Valued Member"}
               </p>
             </div>
             
             {isDemoMode && (
-              <div className="flex items-center gap-3">
-                <Badge variant="outline" className="border-amber-200 text-amber-600 bg-amber-50">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <Badge variant="outline" className="border-amber-200 text-amber-600 bg-amber-50 text-xs">
                   Demo Mode
                 </Badge>
                 <Button 
@@ -180,7 +180,7 @@ function CibilPage() {
                     setDemoScore(newScore);
                     toast.success(`Score updated to ${newScore}`);
                   }}
-                  className="text-xs font-bold"
+                  className="text-xs font-bold h-8"
                 >
                   Randomize Score
                 </Button>
@@ -192,7 +192,7 @@ function CibilPage() {
                     setStep("input");
                     toast.info("Exited Demo Mode.");
                   }}
-                  className="text-xs text-rose-500 hover:text-rose-600 hover:bg-rose-50 font-bold"
+                  className="text-xs text-rose-500 hover:text-rose-600 hover:bg-rose-50 font-bold h-8"
                 >
                   Exit Demo
                 </Button>
@@ -206,11 +206,11 @@ function CibilPage() {
             </div>
             
             <div className="md:col-span-2 flex flex-col justify-between">
-              <div className="bg-gradient-to-br from-royal-purple/5 to-lic-blue/5 border border-royal-purple/10 rounded-2xl p-6 mb-6">
-                <h3 className="text-sm font-bold text-royal-purple uppercase tracking-wider mb-2">
+              <div className="bg-gradient-to-br from-royal-purple/5 to-lic-blue/5 border border-royal-purple/10 rounded-2xl p-4 sm:p-6 mb-6">
+                <h3 className="text-xs sm:text-sm font-bold text-royal-purple uppercase tracking-wider mb-2">
                   Officer Recommendation
                 </h3>
-                <p className="text-sm font-semibold text-brand-navy dark:text-slate-200 leading-relaxed">
+                <p className="text-xs sm:text-sm font-semibold text-brand-navy dark:text-slate-200 leading-relaxed">
                   {activeScore >= 750 
                     ? "Congratulations! Your credit health is in top tier. You qualify for our exclusive Prime Loan offerings with interest rates starting as low as 8.4% p.a. No extra processing fees or collaterals required."
                     : activeScore >= 600
@@ -237,13 +237,13 @@ function CibilPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 px-4 sm:px-6">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-8 sm:py-12 px-4 sm:px-6">
       {/* Title */}
-      <div className="text-center mb-12 max-w-2xl mx-auto space-y-3">
+      <div className="text-center mb-8 sm:mb-12 max-w-2xl mx-auto space-y-2 sm:space-y-3">
         <Badge className="bg-primary text-white hover:opacity-95 border-none py-1 px-3 mb-2 text-xs font-black shadow-md">
           ⚡ Bureau Score Integration
         </Badge>
-        <h1 className="text-3xl font-black text-brand-navy dark:text-white md:text-5xl tracking-tight leading-tight">
+        <h1 className="text-2xl sm:text-3xl font-black text-brand-navy dark:text-white md:text-5xl tracking-tight leading-tight">
           Retrieve Credit Score
         </h1>
         <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed">
@@ -302,7 +302,7 @@ function CibilPage() {
       {/* Form Steps */}
       {step === "input" && (
         <div className="max-w-xl mx-auto space-y-6">
-          <Card className="p-6 border bg-card shadow-lg relative overflow-hidden">
+          <Card className="p-4 sm:p-6 border bg-card shadow-lg relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-primary" />
             <h3 className="text-base font-extrabold text-brand-navy dark:text-white border-b pb-3 mb-4 flex items-center gap-2">
               <ShieldCheck className="h-5 w-5 text-primary" /> Credit Bureau Consent Form
@@ -316,7 +316,7 @@ function CibilPage() {
                   placeholder="e.g. Vikram Sharma"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="mt-1 rounded-lg border-slate-200"
+                  className="mt-1 rounded-lg border-slate-200 text-sm"
                   required
                 />
               </div>
@@ -329,7 +329,7 @@ function CibilPage() {
                     placeholder="9876543210"
                     value={mobile}
                     onChange={(e) => setMobile(e.target.value)}
-                    className="mt-1 rounded-lg border-slate-200"
+                    className="mt-1 rounded-lg border-slate-200 text-sm"
                     required
                   />
                 </div>
@@ -340,14 +340,14 @@ function CibilPage() {
                     placeholder="ABCDE1234F"
                     value={pan}
                     onChange={(e) => setPan(e.target.value)}
-                    className="uppercase font-mono mt-1 rounded-lg border-slate-200"
+                    className="uppercase font-mono mt-1 rounded-lg border-slate-200 text-sm"
                     maxLength={10}
                     required
                   />
                 </div>
               </div>
 
-              <div className="text-[11px] text-muted-foreground leading-relaxed bg-slate-50 dark:bg-slate-900 border rounded-xl p-4 flex gap-2.5">
+              <div className="text-[11px] text-muted-foreground leading-relaxed bg-slate-50 dark:bg-slate-900 border rounded-xl p-3.5 sm:p-4 flex gap-2.5">
                 <AlertCircle className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
                 <div>
                   <strong>TransUnion Bureau Notice</strong>: Real-time queries are routed directly through authorized banking networks. Scores are subject to verify matches against historical tax and bank filings. Fake profiles will be flagged.
@@ -363,32 +363,32 @@ function CibilPage() {
       )}
 
       {step === "checkout" && !otpSent && (
-        <Card className="p-6 border bg-card shadow-lg max-w-xl mx-auto relative">
+        <Card className="p-4 sm:p-6 border bg-card shadow-lg max-w-xl mx-auto relative">
           <div className="absolute top-0 left-0 w-full h-1 bg-primary" />
           <h3 className="text-base font-extrabold text-brand-navy dark:text-white border-b pb-3 mb-4 flex items-center gap-2">
             <CreditCard className="h-5 w-5 text-primary" /> Premium Report Payout
           </h3>
 
-          <div className="rounded-2xl bg-slate-50 dark:bg-slate-900 p-6 border border-slate-200/50 mb-6 text-center space-y-1">
+          <div className="rounded-2xl bg-slate-50 dark:bg-slate-900 p-4 sm:p-6 border border-slate-200/50 mb-6 text-center space-y-1">
             <span className="text-[10px] text-slate-500 uppercase tracking-widest block font-bold">Bureau Verification Charge</span>
-            <div className="text-4xl font-black text-brand-navy dark:text-white">₹399.00</div>
+            <div className="text-3xl sm:text-4xl font-black text-brand-navy dark:text-white">₹399.00</div>
             <p className="text-[11px] text-muted-foreground">Includes 1-year score monitoring & dynamic dashboard tracking.</p>
           </div>
 
           <div className="space-y-4">
             <span className="text-xs font-bold text-brand-navy dark:text-white block uppercase tracking-wider">Select Payment Method</span>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {[
                 { id: "upi", label: "UPI / QR" },
                 { id: "card", label: "Card" },
-                { id: "net", label: "Net Banking" },
+                { id: "net", label: "Net Bank" },
               ].map((method) => (
                 <Button
                   key={method.id}
                   type="button"
                   variant={paymentMethod === method.id ? "default" : "outline"}
                   onClick={() => setPaymentMethod(method.id)}
-                  className={`text-xs font-bold h-10 rounded-lg ${
+                  className={`text-xs font-bold h-10 rounded-lg px-2 ${
                     paymentMethod === method.id
                       ? "bg-primary text-white shadow"
                       : "border-slate-200 text-slate-600 dark:text-slate-300 hover:bg-slate-50"
@@ -407,7 +407,7 @@ function CibilPage() {
       )}
 
       {step === "checkout" && otpSent && (
-        <Card className="p-6 border bg-card shadow-lg max-w-xl mx-auto relative">
+        <Card className="p-4 sm:p-6 border bg-card shadow-lg max-w-xl mx-auto relative">
           <div className="absolute top-0 left-0 w-full h-1 bg-emerald-500" />
           <h3 className="text-base font-extrabold text-brand-navy dark:text-white border-b pb-3 mb-4 flex items-center gap-2">
             <Smartphone className="h-5 w-5 text-emerald-500" /> Enter Payment OTP
@@ -456,7 +456,7 @@ function CibilPage() {
       )}
 
       {step === "loading" && (
-        <Card className="p-12 border bg-card shadow-lg max-w-xl mx-auto flex flex-col items-center justify-center text-center space-y-4">
+        <Card className="p-8 sm:p-12 border bg-card shadow-lg max-w-xl mx-auto flex flex-col items-center justify-center text-center space-y-4">
           <Loader2 className="h-12 w-12 text-primary animate-spin" />
           <h3 className="text-base font-extrabold text-brand-navy dark:text-white">Processing Payout Request</h3>
           <p className="text-xs text-muted-foreground font-semibold">Contacting secure bank gateway...</p>
@@ -465,7 +465,7 @@ function CibilPage() {
 
       {step === "results" && (
         <div className="max-w-4xl mx-auto space-y-6">
-          <Card className="p-8 border bg-card shadow-lg text-center relative overflow-hidden">
+          <Card className="p-5 sm:p-8 border bg-card shadow-lg text-center relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-amber-500" />
             <div className="absolute top-4 right-4">
               <Badge className="bg-amber-50 text-amber-700 border border-amber-100 font-extrabold px-3 py-1 text-xs">
@@ -473,10 +473,10 @@ function CibilPage() {
               </Badge>
             </div>
 
-            <div className="mx-auto mt-6 max-w-2xl rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 text-center">
+            <div className="mx-auto mt-6 max-w-2xl rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5 sm:p-8 text-center">
               <ShieldCheck className="mx-auto h-12 w-12 text-primary" />
-              <h3 className="mt-4 text-2xl font-black text-brand-navy dark:text-white">Request Under Bureau Queue</h3>
-              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <h3 className="mt-4 text-xl sm:text-2xl font-black text-brand-navy dark:text-white">Request Under Bureau Queue</h3>
+              <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 Your consent and details have been successfully submitted to TransUnion CIBIL. Standard verified scores require direct officer review from the administrative portal before display.
               </p>
             </div>

@@ -43,16 +43,16 @@ function AdminNotifications() {
   const unreadCount = list.filter((n: any) => n.unread).length;
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-10">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-6 sm:py-10">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-3xl font-black text-brand-navy">System Notifications</h1>
+            <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">System Notifications</h1>
             {unreadCount > 0 && (
-              <Badge className="bg-primary text-white font-bold">{unreadCount} New</Badge>
+              <Badge className="bg-primary text-white font-bold text-xs">{unreadCount} New</Badge>
             )}
           </div>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Automated alerts, loan sanction notifications, and DLT SMS delivery reports.
           </p>
         </div>
@@ -62,7 +62,7 @@ function AdminNotifications() {
             variant="outline"
             size="sm"
             onClick={handleMarkAllRead}
-            className="flex items-center gap-1.5 text-xs font-semibold"
+            className="flex items-center gap-1.5 text-xs font-semibold h-8"
           >
             <Check className="h-3.5 w-3.5" /> Mark all as read
           </Button>
@@ -75,7 +75,7 @@ function AdminNotifications() {
           return (
             <Card
               key={item.id}
-              className={`p-5 border transition hover:shadow-sm ${
+              className={`p-4 sm:p-5 border transition hover:shadow-sm ${
                 isUnread ? "bg-primary/5 border-primary/30" : "bg-card"
               }`}
             >

@@ -44,24 +44,24 @@ export function CibilMetrics({ metrics }: CibilMetricsProps) {
   ];
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 w-full">
+    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 w-full">
       {cards.map((card) => {
         const Icon = card.icon;
         return (
-          <Card key={card.title} className="p-5 flex flex-col justify-between border bg-card hover:shadow-md transition-shadow duration-200">
+          <Card key={card.title} className="p-3.5 sm:p-5 flex flex-col justify-between border bg-card hover:shadow-md transition-shadow duration-200">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+              <span className="text-[11px] sm:text-xs font-bold text-muted-foreground uppercase tracking-wider">
                 {card.title}
               </span>
-              <div className={`p-2 rounded-xl ${card.color}`}>
-                <Icon className="h-4 w-4" />
+              <div className={`p-1.5 sm:p-2 rounded-xl ${card.color}`}>
+                <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </div>
             </div>
-            <div className="mt-4">
-              <span className="text-2xl font-black text-brand-navy dark:text-white tracking-tight">
+            <div className="mt-3 sm:mt-4">
+              <span className="text-xl sm:text-2xl font-black text-brand-navy dark:text-white tracking-tight">
                 {card.value}
               </span>
-              <p className="text-[11px] text-muted-foreground mt-1 leading-normal font-medium">
+              <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 leading-normal font-medium">
                 {card.description}
               </p>
             </div>

@@ -61,16 +61,16 @@ function AdminApplications() {
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-3xl font-black text-brand-navy">Applications Manager</h1>
-            <Badge className="bg-primary/10 text-primary font-semibold">
-              {allApps.length} Total Submissions
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">Applications Manager</h1>
+            <Badge className="bg-primary/10 text-primary font-semibold text-xs">
+              {allApps.length} Submissions
             </Badge>
           </div>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Review, underwrite, and authorize retail loan & insurance applications.
           </p>
         </div>
@@ -81,18 +81,18 @@ function AdminApplications() {
             placeholder="Search applicant name or ref #..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-9"
+            className="pl-9 text-xs"
           />
         </div>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center gap-2 pb-4 border-b mb-6">
+      <div className="flex items-center gap-2 pb-3 border-b mb-6 overflow-x-auto no-scrollbar">
         {["All", "Pending", "Approved", "Loans", "Insurance"].map((tab) => (
           <button
             key={tab}
             onClick={() => setFilter(tab)}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition whitespace-nowrap ${
               filter === tab
                 ? "bg-brand-navy text-white shadow-sm"
                 : "bg-slate-100 text-slate-600 hover:bg-slate-200"
@@ -106,7 +106,7 @@ function AdminApplications() {
       {/* Applications List */}
       <div className="space-y-4">
         {filtered.length === 0 ? (
-          <Card className="p-12 text-center border-dashed">
+          <Card className="p-8 sm:p-12 text-center border-dashed">
             <FileText className="h-10 w-10 text-slate-300 mx-auto mb-2" />
             <p className="text-sm font-semibold text-slate-600">No applications match your filter</p>
           </Card>
@@ -114,11 +114,11 @@ function AdminApplications() {
           filtered.map((app: any) => (
             <Card
               key={app._id}
-              className="p-5 border bg-card shadow-sm hover:border-primary/50 transition"
+              className="p-4 sm:p-5 border bg-card shadow-sm hover:border-primary/50 transition"
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span className="font-mono text-xs font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
                       {app._id}
                     </span>
@@ -134,7 +134,7 @@ function AdminApplications() {
                     </Badge>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4 mt-2 text-xs text-muted-foreground">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-2 text-xs text-muted-foreground">
                     <span className="font-semibold text-slate-700 capitalize">
                       {app.productKind}: {app.productType}
                     </span>
@@ -151,7 +151,7 @@ function AdminApplications() {
                   )}
                 </div>
 
-                <div className="flex items-center gap-2 self-end md:self-center">
+                <div className="flex items-center gap-2 self-start sm:self-center shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 w-full sm:w-auto justify-end">
                   {app.status !== "Approved" && (
                     <Button
                       size="sm"

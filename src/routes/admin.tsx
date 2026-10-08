@@ -24,7 +24,7 @@ function AdminLayoutGuard() {
         <p className="mt-2 text-sm text-muted-foreground max-w-md">
           Staff authentication is required to access the admin CRM. Please log in as an administrator to proceed.
         </p>
-        <div className="mt-6 flex gap-3">
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Link to="/admin/login">
             <Button className="bg-primary hover:bg-brand-navy">Go to Admin Login</Button>
           </Link>

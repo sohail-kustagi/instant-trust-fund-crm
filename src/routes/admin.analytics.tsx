@@ -38,19 +38,19 @@ function MetricCard({
 }) {
   const isPositive = trend.startsWith("+");
   return (
-    <Card className="p-6 border shadow-sm bg-card">
+    <Card className="p-3.5 sm:p-5 border shadow-sm bg-card">
       <div className="flex items-start justify-between">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             {title}
           </span>
-          <h3 className="mt-2 text-2xl font-black text-brand-navy">{value}</h3>
+          <h3 className="mt-1.5 sm:mt-2 text-lg sm:text-2xl font-black text-brand-navy">{value}</h3>
         </div>
-        <div className="rounded-xl p-3 bg-primary/10 text-primary">
-          <Icon className="h-5 w-5" />
+        <div className="rounded-xl p-2 sm:p-2.5 bg-primary/10 text-primary">
+          <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
         </div>
       </div>
-      <div className="mt-4 flex items-center gap-2 pt-3 border-t border-slate-100 text-xs">
+      <div className="mt-3 sm:mt-4 flex flex-wrap items-center gap-1.5 sm:gap-2 pt-2.5 sm:pt-3 border-t border-slate-100 text-[11px] sm:text-xs">
         <span
           className={`font-bold flex items-center ${
             isPositive ? "text-emerald-600" : "text-rose-600"
@@ -59,7 +59,7 @@ function MetricCard({
           <ArrowUpRight className="h-3.5 w-3.5 inline mr-0.5" />
           {trend}
         </span>
-        <span className="text-muted-foreground">{subtitle}</span>
+        <span className="text-muted-foreground truncate">{subtitle}</span>
       </div>
     </Card>
   );
@@ -83,16 +83,16 @@ function AdminAnalytics() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-3xl font-black text-brand-navy">Executive Intelligence</h1>
-            <Badge className="bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 font-semibold">
+            <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">Executive Intelligence</h1>
+            <Badge className="bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 font-semibold text-xs">
               Live BI Feed
             </Badge>
           </div>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Real-time disbursal tracking, underwriting conversion, and bank partner throughput.
           </p>
         </div>
@@ -104,7 +104,7 @@ function AdminAnalytics() {
       </div>
 
       {/* KPI Cards */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
         <MetricCard
           title="Total Capital Disbursed"
           value="₹17.80 Crores"

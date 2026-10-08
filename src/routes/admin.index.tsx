@@ -28,16 +28,16 @@ function StatCard({ title, value, Icon, tone = "primary" }: any) {
         ? "bg-rose-500/10 text-rose-600"
         : "bg-primary/10 text-primary";
   return (
-    <Card className="p-5 border shadow-sm">
+    <Card className="p-4 sm:p-5 border shadow-sm">
       <div className="flex items-start justify-between">
         <div>
-          <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          <div className="text-[11px] sm:text-xs font-medium uppercase tracking-wider text-muted-foreground">
             {title}
           </div>
-          <div className="mt-2 text-2xl font-black">{value}</div>
+          <div className="mt-1.5 sm:mt-2 text-xl sm:text-2xl font-black">{value}</div>
         </div>
-        <div className={`rounded-xl p-2.5 ${toneCls}`}>
-          <Icon className="h-5 w-5" />
+        <div className={`rounded-xl p-2 sm:p-2.5 ${toneCls}`}>
+          <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
         </div>
       </div>
     </Card>
@@ -69,18 +69,18 @@ function AdminDashboard() {
   const rejected = applications.filter((c: any) => c.status === "Rejected").length;
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-black md:text-4xl text-brand-navy">Admin Dashboard</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <h1 className="text-2xl sm:text-3xl font-black md:text-4xl text-brand-navy">Admin Dashboard</h1>
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Real-time overview of the financial CRM.
           </p>
         </div>
         <Badge className="bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20">Production Mode</Badge>
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 sm:mt-8 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         <StatCard title="Total Loans" value={totalLoans.toString()} Icon={Landmark} />
         <StatCard title="Insurance Policies" value={totalIns.toString()} Icon={ShieldCheck} />
         <StatCard title="Total Applications" value={applications.length.toString()} Icon={Users} />
@@ -89,8 +89,8 @@ function AdminDashboard() {
         <StatCard title="Rejected Applications" value={rejected.toString()} Icon={XCircle} tone="warn" />
       </div>
 
-      <Card className="mt-8 p-6 border shadow-sm">
-        <h2 className="text-lg font-bold text-brand-navy border-b pb-3 mb-4">Recent Applications</h2>
+      <Card className="mt-6 sm:mt-8 p-4 sm:p-6 border shadow-sm">
+        <h2 className="text-base sm:text-lg font-bold text-brand-navy border-b pb-3 mb-4">Recent Applications</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left">
             <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold border-b">

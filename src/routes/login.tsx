@@ -67,16 +67,16 @@ function LoginPage() {
   };
 
   return (
-    <div className="mx-auto max-w-md px-6 py-16 flex flex-col items-center">
-      <div className="text-center w-full mb-8">
-        <h1 className="text-3xl font-black text-brand-navy">Customer Login</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+    <div className="mx-auto max-w-md px-4 sm:px-6 py-8 sm:py-16 flex flex-col items-center">
+      <div className="text-center w-full mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">Customer Login</h1>
+        <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
           Sign in to access your dashboard and applications.
         </p>
       </div>
 
-      <Card className="p-8 w-full border bg-card shadow-lg">
-        <form onSubmit={handleLogin} className="space-y-5">
+      <Card className="p-5 sm:p-8 w-full border bg-card shadow-lg rounded-xl sm:rounded-2xl">
+        <form onSubmit={handleLogin} className="space-y-4 sm:space-y-5">
           <div className="space-y-1">
             <label className="text-sm font-semibold text-brand-navy">Email or Mobile Number</label>
             <input
@@ -137,7 +137,7 @@ function LoginPage() {
 
           <div className="relative flex items-center py-2">
             <div className="flex-grow border-t border-muted"></div>
-            <span className="flex-shrink-0 mx-4 text-muted-foreground text-sm">or continue with</span>
+            <span className="flex-shrink-0 mx-4 text-muted-foreground text-xs sm:text-sm">or continue with</span>
             <div className="flex-grow border-t border-muted"></div>
           </div>
 
@@ -172,14 +172,14 @@ function LoginPage() {
               toast.success("Welcome, Rajesh S. Sharma (Customer Demo)");
               navigate({ to: "/dashboard" });
             }}
-            className="w-full border-emerald-500/40 text-emerald-700 hover:bg-emerald-50 h-11 font-semibold flex items-center justify-center gap-2"
+            className="w-full border-emerald-500/40 text-emerald-700 hover:bg-emerald-50 h-auto min-h-[44px] py-2 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 text-center"
           >
-            <ShieldCheck className="h-4 w-4 text-emerald-600" />
-            Quick Demo: 1-Click Login as Customer
+            <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
+            <span>Quick Demo: 1-Click Login as Customer</span>
           </Button>
         </form>
 
-        <div className="mt-6 text-center text-sm text-muted-foreground">
+        <div className="mt-6 text-center text-xs sm:text-sm text-muted-foreground">
           Don't have an account?{" "}
           <Link to="/register" className="text-primary font-semibold hover:underline">
             Register here

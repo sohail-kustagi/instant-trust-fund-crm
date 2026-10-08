@@ -88,15 +88,15 @@ function RegisterPage() {
   };
 
   return (
-    <div className="mx-auto max-w-md px-6 py-16 flex flex-col items-center">
-      <div className="text-center w-full mb-8">
-        <h1 className="text-3xl font-black text-brand-navy">Create an Account</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+    <div className="mx-auto max-w-md px-4 sm:px-6 py-8 sm:py-16 flex flex-col items-center">
+      <div className="text-center w-full mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-black text-brand-navy">Create an Account</h1>
+        <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
           Sign up to apply for loans, track applications, and manage insurance.
         </p>
       </div>
 
-      <Card className="p-8 w-full border bg-card shadow-lg">
+      <Card className="p-5 sm:p-8 w-full border bg-card shadow-lg rounded-xl sm:rounded-2xl">
         <form onSubmit={handleRegister} className="space-y-4">
           <div className="space-y-1">
             <label className="text-sm font-semibold text-brand-navy">Full Name</label>

@@ -150,29 +150,29 @@ function ProfilePage() {
   );
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
-      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10">
+      <div className="mb-6 sm:mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Customer Profile</p>
-          <h1 className="mt-3 text-3xl font-black text-brand-navy">Welcome back, {user.fullName}</h1>
-          <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-primary">Customer Profile</p>
+          <h1 className="mt-2 text-2xl sm:text-3xl font-black text-brand-navy">Welcome back, {user.fullName}</h1>
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground max-w-2xl">
             Manage your personal details, review applications, and explore offers.
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" onClick={handleLogout} className="flex items-center gap-2">
-            <LogOut className="h-4 w-4" /> Logout
+          <Button variant="outline" size="sm" onClick={handleLogout} className="flex items-center gap-2 text-xs">
+            <LogOut className="h-3.5 w-3.5" /> Logout
           </Button>
         </div>
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[1.5fr_0.9fr]">
         <div className="space-y-6">
-          <Card className="p-6 border shadow-sm">
-            <div className="mb-6 flex items-center justify-between">
+          <Card className="p-4 sm:p-6 border shadow-sm">
+            <div className="mb-5 sm:mb-6 flex items-center justify-between">
               <div>
-                <h2 className="text-xl font-bold text-brand-navy">Personal Details</h2>
-                <p className="text-sm text-muted-foreground">Update your contact and DOB details here.</p>
+                <h2 className="text-lg sm:text-xl font-bold text-brand-navy">Personal Details</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground">Update your contact and DOB details here.</p>
               </div>
               <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-900">
                 {user.role === "customer" ? "Customer" : "User"}
@@ -181,24 +181,24 @@ function ProfilePage() {
 
             <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="fullName">Full Name</Label>
-                <Input id="fullName" value={fullName} onChange={(event) => setFullName(event.target.value)} required />
+                <Label htmlFor="fullName" className="text-xs sm:text-sm">Full Name</Label>
+                <Input id="fullName" value={fullName} onChange={(event) => setFullName(event.target.value)} required className="text-sm" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+                <Label htmlFor="email" className="text-xs sm:text-sm">Email</Label>
+                <Input id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} className="text-sm" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="mobile">Mobile Number</Label>
-                <Input id="mobile" type="tel" value={mobile} onChange={(event) => setMobile(event.target.value)} />
+                <Label htmlFor="mobile" className="text-xs sm:text-sm">Mobile Number</Label>
+                <Input id="mobile" type="tel" value={mobile} onChange={(event) => setMobile(event.target.value)} className="text-sm" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="dob">Date of Birth</Label>
-                <Input id="dob" type="date" value={dob} onChange={(event) => setDob(event.target.value)} />
+                <Label htmlFor="dob" className="text-xs sm:text-sm">Date of Birth</Label>
+                <Input id="dob" type="date" value={dob} onChange={(event) => setDob(event.target.value)} className="text-sm" />
               </div>
 
               <div className="sm:col-span-2">
-                <Button type="submit" className="flex w-full items-center justify-center gap-2" disabled={updateProfileMutation.isPending}>
+                <Button type="submit" className="flex w-full items-center justify-center gap-2 h-11" disabled={updateProfileMutation.isPending}>
                   {updateProfileMutation.isPending ? "Saving..." : "Save changes"}
                   <ArrowRight className="h-4 w-4" />
                 </Button>
@@ -206,11 +206,11 @@ function ProfilePage() {
             </form>
           </Card>
 
-          <Card className="p-6 border shadow-sm">
-            <div className="mb-5 flex items-center justify-between">
+          <Card className="p-4 sm:p-6 border shadow-sm">
+            <div className="mb-4 sm:mb-5 flex items-center justify-between">
               <div>
-                <h2 className="text-xl font-bold text-brand-navy">Your Applications</h2>
-                <p className="text-sm text-muted-foreground">Track current loans and insurance requests.</p>
+                <h2 className="text-lg sm:text-xl font-bold text-brand-navy">Your Applications</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground">Track current loans and insurance requests.</p>
               </div>
             </div>
 

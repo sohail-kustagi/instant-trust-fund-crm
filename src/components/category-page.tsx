@@ -257,22 +257,22 @@ function ProductPartners({ slug, kind }: { slug: string; kind: string }) {
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 mt-6">
+        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 mt-6">
           {partners.map((p) => {
             const config = PARTNER_BRANDS[p] || { bg: "#0066CC", text: "#FFFFFF", label: p.toUpperCase() };
             return (
               <div
                 key={p}
-                className="flex items-center gap-3 bg-white/80 border border-slate-200/60 px-5 py-3 rounded-2xl shadow-sm hover:shadow-elevated hover:scale-105 hover:border-gold/50 transition-all duration-300 cursor-pointer group"
+                className="flex items-center gap-2 sm:gap-3 bg-white/80 border border-slate-200/60 px-3 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-elevated hover:scale-105 hover:border-gold/50 transition-all duration-300 cursor-pointer group"
                 title={p}
               >
                 <div
-                  className="flex items-center justify-center h-8 px-3 rounded-xl text-[10px] font-black tracking-tighter uppercase shadow-inner select-none transition-all group-hover:brightness-110"
+                  className="flex items-center justify-center h-7 sm:h-8 px-2 sm:px-3 rounded-lg sm:rounded-xl text-[9px] sm:text-[10px] font-black tracking-tighter uppercase shadow-inner select-none transition-all group-hover:brightness-110"
                   style={{ backgroundColor: config.bg, color: config.text }}
                 >
                   {config.label}
                 </div>
-                <span className="text-xs font-black text-brand-navy group-hover:text-primary transition-colors">
+                <span className="text-[11px] sm:text-xs font-black text-brand-navy group-hover:text-primary transition-colors">
                   {p}
                 </span>
               </div>
@@ -280,7 +280,7 @@ function ProductPartners({ slug, kind }: { slug: string; kind: string }) {
           })}
         </div>
         
-        <p className="text-[10px] text-slate-500 italic mt-4 max-w-2xl mx-auto">
+        <p className="text-[10px] text-slate-500 italic mt-4 max-w-2xl mx-auto px-2">
           * {kind === "loan"
             ? "Loan approval, interest rates, and eligibility are determined by the respective financial institution."
             : "Policy approval, premiums, and eligibility are determined by the respective insurance provider."}
@@ -295,22 +295,22 @@ export function CategoryPage({ item }: { item: CatalogItem }) {
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-gradient text-white">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 md:grid-cols-2 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 py-10 sm:py-16 md:grid-cols-2 md:py-20">
           <div className="flex flex-col justify-center">
-            <Badge className="mb-4 w-fit bg-accent text-accent-foreground hover:bg-accent">
+            <Badge className="mb-3 sm:mb-4 w-fit bg-accent text-accent-foreground hover:bg-accent text-xs">
               {item.kind === "loan" ? "Loan Product" : "Insurance Plan"}
             </Badge>
-            <h1 className="text-4xl font-extrabold leading-tight md:text-5xl">{item.name}</h1>
-            <p className="mt-3 text-lg text-white/85">{item.tagline}</p>
-            <p className="mt-4 max-w-xl text-sm text-white/75">{item.description}</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">{item.name}</h1>
+            <p className="mt-2 sm:mt-3 text-base sm:text-lg text-white/85">{item.tagline}</p>
+            <p className="mt-3 sm:mt-4 max-w-xl text-xs sm:text-sm text-white/75 leading-relaxed">{item.description}</p>
             {item.kind === "insurance" && (
-              <div className="mt-4 rounded-xl border border-white/20 bg-white/10 p-3 text-[11px] text-white/90 backdrop-blur-sm max-w-xl">
+              <div className="mt-4 rounded-xl border border-white/20 bg-white/10 p-3 text-[11px] text-white/90 backdrop-blur-sm max-w-xl leading-relaxed">
                 🛡️ **Policybazaar Partner Integration**: In production, real-time premium tables and direct policy comparison depend on official partnership API contracts with Policybazaar and regulatory IRDAI clearances.
               </div>
             )}
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-5 sm:mt-6 flex flex-wrap gap-2.5 sm:gap-3">
               <ApplyDialog productName={item.name} productKind={item.kind}>
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-xs sm:text-sm px-4 sm:px-6">
                   Apply Now <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </ApplyDialog>
@@ -318,13 +318,13 @@ export function CategoryPage({ item }: { item: CatalogItem }) {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/40 bg-white/10 text-white hover:bg-white/20"
+                  className="border-white/40 bg-white/10 text-white hover:bg-white/20 text-xs sm:text-sm px-4 sm:px-6"
                 >
                   Learn more
                 </Button>
               </a>
             </div>
-            <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/80">
+            <div className="mt-5 sm:mt-6 flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-white/80">
               {item.rate && (
                 <span className="flex items-center gap-1.5">
                   <IndianRupee className="h-4 w-4" />
@@ -366,12 +366,12 @@ export function CategoryPage({ item }: { item: CatalogItem }) {
       </section>
 
       {/* Key features */}
-      <section id="details" className="mx-auto max-w-7xl px-6 py-14">
-        <div className="grid gap-4 md:grid-cols-4">
+      <section id="details" className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-14">
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           {item.features.map((f) => (
-            <Card key={f} className="flex items-start gap-3 p-4">
-              <Sparkles className="mt-0.5 h-5 w-5 text-primary" />
-              <div className="text-sm font-medium">{f}</div>
+            <Card key={f} className="flex items-start gap-3 p-3.5 sm:p-4">
+              <Sparkles className="mt-0.5 h-4 sm:h-5 w-4 sm:w-5 text-primary shrink-0" />
+              <div className="text-xs sm:text-sm font-medium">{f}</div>
             </Card>
           ))}
         </div>
@@ -379,22 +379,22 @@ export function CategoryPage({ item }: { item: CatalogItem }) {
 
       {/* Sub-types */}
       {item.subtypes && (
-        <section className="bg-secondary/40 py-14 border-t border-b">
-          <div className="mx-auto max-w-7xl px-6">
-            <h2 className="text-2xl font-bold md:text-3xl">Available variants</h2>
-            <p className="mt-2 text-muted-foreground">
+        <section className="bg-secondary/40 py-10 sm:py-14 border-t border-b">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Available variants</h2>
+            <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-muted-foreground">
               Choose the option that best fits your goal.
             </p>
-            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {item.subtypes.map((s) => (
-                <Card key={s.name} className="p-5 transition hover:shadow-elevated">
+                <Card key={s.name} className="p-4 sm:p-5 transition hover:shadow-elevated">
                   <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-md bg-primary/10 p-1.5 text-primary">
+                    <div className="h-8 w-8 rounded-md bg-primary/10 p-1.5 text-primary shrink-0">
                       <ShieldCheck className="h-full w-full" />
                     </div>
-                    <h3 className="font-semibold text-foreground">{s.name}</h3>
+                    <h3 className="font-semibold text-foreground text-sm">{s.name}</h3>
                   </div>
-                  <p className="mt-3 text-sm text-muted-foreground">{s.description}</p>
+                  <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">{s.description}</p>
                 </Card>
               ))}
             </div>
@@ -403,36 +403,36 @@ export function CategoryPage({ item }: { item: CatalogItem }) {
       )}
 
       {/* Benefits / Eligibility / Docs */}
-      <section className="mx-auto max-w-7xl px-6 py-14">
-        <div className="grid gap-6 lg:grid-cols-3">
-          <Card className="p-6">
-            <h3 className="text-lg font-bold">Benefits</h3>
-            <ul className="mt-4 space-y-2 text-sm">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-14">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-3">
+          <Card className="p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-bold">Benefits</h3>
+            <ul className="mt-3 sm:mt-4 space-y-2 text-xs sm:text-sm">
               {item.benefits.map((b) => (
                 <li key={b} className="flex gap-2">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
+                  <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-primary" />
                   <span>{b}</span>
                 </li>
               ))}
             </ul>
           </Card>
-          <Card className="p-6">
-            <h3 className="text-lg font-bold">Eligibility</h3>
-            <ul className="mt-4 space-y-2 text-sm">
+          <Card className="p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-bold">Eligibility</h3>
+            <ul className="mt-3 sm:mt-4 space-y-2 text-xs sm:text-sm">
               {item.eligibility.map((b) => (
                 <li key={b} className="flex gap-2">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
+                  <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-primary" />
                   <span>{b}</span>
                 </li>
               ))}
             </ul>
           </Card>
-          <Card className="p-6">
-            <h3 className="text-lg font-bold">Documents Required</h3>
-            <ul className="mt-4 space-y-2 text-sm">
+          <Card className="p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-bold">Documents Required</h3>
+            <ul className="mt-3 sm:mt-4 space-y-2 text-xs sm:text-sm">
               {item.documents.map((b) => (
                 <li key={b} className="flex gap-2">
-                  <FileText className="h-5 w-5 shrink-0 text-primary" />
+                  <FileText className="h-4 sm:h-5 w-4 sm:w-5 shrink-0 text-primary" />
                   <span>{b}</span>
                 </li>
               ))}
@@ -446,8 +446,8 @@ export function CategoryPage({ item }: { item: CatalogItem }) {
 
       {/* EMI Calculator (loans only) */}
       {item.kind === "loan" && (
-        <section className="bg-secondary/40 py-14">
-          <div className="mx-auto max-w-7xl px-6">
+        <section className="bg-secondary/40 py-10 sm:py-14">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <h2 className="text-2xl font-bold md:text-3xl">EMI Calculator</h2>
             <p className="mt-2 text-muted-foreground">Plan your monthly outgo before you apply.</p>
             <div className="mt-8">

@@ -281,10 +281,10 @@ export function ApplyDialog({
                       variant={isUploaded ? "default" : "outline"}
                       size="sm"
                       onClick={() => simulateUpload(doc.name)}
-                      className="text-xs flex items-center gap-1.5 h-8"
+                      className="text-xs flex items-center gap-1.5 h-auto py-1.5 min-h-[32px] text-left"
                     >
-                      {isUploaded && <CheckCircle2 className="h-3.5 w-3.5" />}
-                      {doc.label}
+                      {isUploaded && <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />}
+                      <span>{doc.label}</span>
                     </Button>
                   );
                 })}
@@ -302,7 +302,7 @@ export function ApplyDialog({
               )}
             </div>
 
-            <div className="sm:col-span-2 flex justify-end gap-2">
+            <div className="sm:col-span-2 flex flex-col-reverse sm:flex-row justify-end gap-2 pt-2">
               <Button type="button" variant="outline" onClick={() => handleClose(false)}>
                 Cancel
               </Button>
